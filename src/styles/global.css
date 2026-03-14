@@ -27,20 +27,20 @@
   --color-pal-23: #fb58aa;
   --color-pal-24: #02dbef;
   --color-pal-25: #ee016f;
-  --color-pal-26: #fda409;
+  --color-pal-26: #f6c19d;
   --color-pal-27: #f85668;
   --color-pal-28: #881a89;
-  --color-pal-29: #fed2b5;
+  --color-pal-29: #fcdcc8;
 
   /* ── Semantic aliases ── */
   --color-bg: #04070c;
   --color-bg-elevated: #0a0f1a;
   --color-text: #c0c5fd;
-  --color-accent: #fda409;
-  --color-accent-hover: #fed2b5;
+  --color-accent: #f6c19d;
+  --color-accent-hover: #fcdcc8;
   --color-muted: #808c9b;
   --color-selection: #3a7bd5;
-  --color-glow: #fda40930;
+  --color-glow: #f6c19d30;
 
   /* ── Fonts ── */
   /* Primary UI font for body text */
@@ -188,7 +188,7 @@
 
 /* ── Gradient text utility ── */
 .gradient-text {
-  background: linear-gradient(135deg, var(--color-accent), var(--color-pal-23), var(--color-pal-7));
+  background: var(--color-accent);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -213,14 +213,14 @@
 /* ── Section divider ── */
 .section-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+  background: var(--color-accent);
   opacity: 0.3;
 }
 
-/* ── Gradient border button ── */
+/* ── Primary button ── */
 .btn-gradient {
   position: relative;
-  background: linear-gradient(135deg, var(--color-accent), #e8930a);
+  background: var(--color-accent);
   color: var(--color-bg);
   font-weight: 600;
   border-radius: 12px;
@@ -240,7 +240,7 @@
   display: inline-block;
   width: 60px;
   height: 3px;
-  background: linear-gradient(90deg, var(--color-accent), var(--color-pal-23));
+  background: var(--color-accent);
   border-radius: 2px;
 }
 
