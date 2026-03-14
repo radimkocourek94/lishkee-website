@@ -1,0 +1,370 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro"
+
+const zipPath = "/docs/lishkee-EPK-v1.0.zip"
+
+// small selection of images that already exist in public/images for quick previews
+const images = [
+  "/images/Lishkee3.jpg",
+  "/images/Lishkee_Jakub_Joch.JPEG",
+  "/images/Lishkee2.JPEG",
+  "/images/Lishkee1.JPEG",
+  "/images/Lishkee1_Tomáš_Škoda.jpg",
+  "/images/Lishkee2_Tomáš_Škoda.jpg",
+  "/images/Lishkee3_Tomáš_Škoda..jpg",
+  "/images/Lishkee4_Tomáš_Škoda..jpg",
+]
+---
+
+<BaseLayout title="Press Kit — Lishkee">
+  <div class="max-w-6xl mx-auto px-4 py-16">
+    <!-- Header / CTA -->
+    <div class="flex flex-col lg:flex-row items-start lg:items-center gap-6 mb-10">
+      <div class="flex-1">
+        <span class="accent-line mb-4 block"></span>
+        <h1 class="text-4xl sm:text-5xl font-bold text-accent mb-2">LISHKEE</h1>
+        <h2 class="text-lg text-text/70">Electronic Press Kit</h2>
+      </div>
+
+      <div class="w-full lg:w-auto flex gap-3">
+        <a href={zipPath} download class="btn-gradient inline-block px-5 py-3">Download full EPK (ZIP)</a>
+        <a href="/music" class="px-4 py-3 rounded-md bg-white/5">Listen</a>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <!-- Main content -->
+      <main class="lg:col-span-2 space-y-6">
+        <section class="glass-card p-6 space-y-4">
+          <h2 class="text-2xl font-semibold text-accent">BAND BIO</h2>
+          <div class="prose prose-invert max-w-none text-text/90">
+            <p><strong>Lishkee</strong> is an indie alt-pop duo from Brno, Czech Republic, consisting of <strong>Viktória Šmídová</strong> and <strong>Radim Kocourek</strong> (both equally contributing to production, instrumentation, and songwriting). Operating with a DIY ethos from their small bedroom studio, the pair creates all their music independently, blending elements of electronica, pop, downtempo, and jazz into a distinctive sonic palette.</p>
+
+            <p>The project emerged from their earlier incarnation as <strong>Stereofox</strong>, evolving into <strong>Lishkee</strong> with a refined artistic vision. Their sound is characterized by electronic beats interwoven with guitar textures and jazz-inflected vocals, creating an introspective atmosphere that draws listeners into layered instrumental landscapes. The music carries a cozy, nostalgic quality, with lyrics exploring personal themes like anxiety, self-reflection, and contemplation.</p>
+
+            <p>Musically, Lishkee navigates the spaces between indie psychedelia, and dream pop, crafting distinctive and original melodies that set them apart in the Czech alternative scene. Their use of delicate vocals with jazzy nuances, electronic rhythms, and layered instrumental textures creates a contemplative sonic environment that rewards deep listening. The duo's approach combines experimental sound design with clear melodic sensibility, maintaining a balance between spontaneity and careful composition.</p>
+          </div>
+        </section>
+
+        <section class="glass-card p-6 space-y-4">
+          <h2 class="text-2xl font-semibold text-accent">CAREER HIGHLIGHTS</h2>
+          <div class="prose prose-invert max-w-none text-text/90">
+            <p><strong>2017</strong> - Released demo album <em>Layers</em> (as Stereofox), which received a nomination for <strong>Debut of the Year at the Slovak Radio_Head Awards</strong></p>
+
+            <p><strong>2018</strong> - Reached the finals of <strong>Radio Wave's Startér competition</strong> with the single "Distortions," earning them a performance slot at Slovakia's prestigious <strong>Pohoda Festival</strong></p>
+
+            <p><strong>2021-2024</strong> - Released a critically acclaimed series of singles including "Game of Darts," "Flood," "Not Much Left to Be Worried About," "Nightstand," "Winter Voyage," "Another Sunday," "Breaking the Illusion," and "In Case of Emergency"</p>
+
+            <p><strong>2024</strong> - Collaborated with Luca Minelli on "Endlessly," expanding their creative network</p>
+
+            <p><strong>2024-2025</strong> - Released debut album <strong>"Collections of Pink, Blue, &amp; All the Other Colors, Too"</strong> (April 2, 2025), an eclectic 12-track collection spanning their musical evolution, described as a mix of dream pop and dark electronica</p>
+
+            <p><strong>2024-2025</strong> - Provided original music for <strong>Labyrint</strong>, a site-specific theater performance at the historic Káznice (former prison) in Brno, as part of a collaborative project with Divadelní smečka, Brno dancers and performers, and filmmaker Petr Kačírka</p>
+
+            <p><strong>2025</strong> - Released "Silver (Modular Version)" featuring Luca Minelli, recorded with modular synthesizers in a single take, showcasing their experimental approach</p>
+
+            <p><strong>November 2025</strong> - Viktória Šmídová provided vocals for "Faraway Places" on <strong>Concrete Noir's debut album "Romance Ruins"</strong> (Frequens Records), an Italian darkwave/modular synth project by Piero Fragola. This marks Lishkee's first international collaboration on a major label release, expanding their reach into the European darkwave and coldwave scene.</p>
+
+            <p><strong>Ongoing</strong> - Currently working on their second full-length album, building on the foundation established by their debut while continuing to explore new sonic territories</p>
+          </div>
+        </section>
+
+        <section class="glass-card p-6 space-y-4">
+          <h2 class="text-2xl font-semibold text-accent">GENRE &amp; SOUND</h2>
+          <div class="prose prose-invert max-w-none text-text/90">
+            <p><strong>Primary Genres:</strong> Indie Alt-Pop, Dream Pop, Downtempo Pop, Experimental Pop</p>
+
+            <p><strong>Musical Elements:</strong> Electronica, Jazz, Psychedelic Pop, Trip-Hop, Singer-Songwriter, Lo-Fi, Indietronica</p>
+
+            <h4>Sound Characteristics:</h4>
+            <ul>
+              <li>Electronic beats layered with organic guitar work</li>
+              <li>Jazz-influenced vocal delivery with soft, expressive performance</li>
+              <li>Atmospheric and introspective production</li>
+              <li>Melancholic yet captivating melodies</li>
+              <li>DIY bedroom production aesthetic</li>
+              <li>Hypnotic rhythms and dreamy textures</li>
+              <li>Cozy, nostalgic feel</li>
+              <li>Modular synth experimentation and spontaneous composition</li>
+              <li>Lyrics exploring anxiety, self-reflection, and contemplation</li>
+            </ul>
+
+            <p><strong>Genre &amp; Sound Tags:</strong> Alternative, Alt Pop, Dream Pop, Dark Electronica, Experimental Pop, Indie Pop, Psychedelic Pop, Trip-Hop</p>
+
+            <p><strong>Comparable Artists:</strong> Pecq, Glassmanet, MISSINCAT, Debris Discs, Kiara NGL, ARANANAR</p>
+          </div>
+        </section>
+
+        <section class="glass-card p-6 space-y-4">
+          <h2 class="text-2xl font-semibold text-accent">DISCOGRAPHY</h2>
+          <div class="prose prose-invert max-w-none text-text/90 space-y-3">
+            <h3>Full-Length Albums</h3>
+
+            <p><strong>"Collections of Pink, Blue, &amp; All the Other Colors, Too"</strong> (April 2, 2025)</p>
+
+            <p>Lishkee's debut album is an eclectic 12-track collection showcasing the duo's musical evolution over recent years. Described as "a mix of dream pop and dark electronica," the album brings together reimagined versions of fan-favorite singles alongside previously unreleased material. All tracks were recorded, produced, mixed, and mastered by Lishkee in their bedroom studio (except "In Case of Emergency," which was mixed and mastered by Jan Sobko). The album demonstrates their DIY ethos and ability to create polished, atmospheric productions independently.</p>
+
+            <h4>Tracklist:</h4>
+            <ol>
+              <li>Game of Darts 2.0 (3:03)</li>
+              <li>Not Much Left to Be Worried About 2.0 (3:05)</li>
+              <li>Flood (2:50)</li>
+              <li>Out to Sea (3:13)</li>
+              <li>Free-Floating Birds (3:11)</li>
+              <li>Winter Voyage (2:38)</li>
+              <li>Late Night Dawnings (3:14)</li>
+              <li>In Case of Emergency (3:44)</li>
+              <li>Breaking the Illusion (3:09)</li>
+              <li>Nightstand (2:44)</li>
+              <li>Distortions (4:41)</li>
+              <li>Another Sunday (3:30)</li>
+            </ol>
+
+            <p>Available on Bandcamp, Spotify, Apple Music, and all major streaming platforms.</p>
+
+            <h4>Singles (2025)</h4>
+            <p><strong>"Silver (Modular Version)"</strong> feat. Luca Minelli (May 2025) - Features modular synthesizers recorded in one take, with dreamy synth textures and reflective lyrics about sitting by a bonfire contemplating life's choices</p>
+
+            <h4>Singles (2024)</h4>
+            <ul>
+              <li><strong>"Endlessly"</strong> feat. Luca Minelli (November 2024)</li>
+              <li><strong>"In Case of Emergency"</strong> (August 2024)</li>
+              <li><strong>"Breaking the Illusion"</strong> (June 2024)</li>
+              <li><strong>"Another Sunday"</strong> (March 2024)</li>
+              <li><strong>"Winter Voyage"</strong> (January 2024)</li>
+            </ul>
+
+            <h4>Singles (2023)</h4>
+            <ul>
+              <li><strong>"Late Night Dawnings"</strong> (November 2023)</li>
+              <li><strong>"Nightstand"</strong> (April 2023)</li>
+            </ul>
+
+            <h4>Earlier Releases (2021-2023)</h4>
+            <ul>
+              <li><strong>"Not Much Left to Be Worried About"</strong> (February 2023)</li>
+              <li><strong>"Flood"</strong> (January 2022)</li>
+              <li><strong>"Game of Darts"</strong> (October 2021)</li>
+              <li><strong>"Free-Floating Birds"</strong></li>
+            </ul>
+
+            <h4>Earlier Work as Stereofox</h4>
+            <ul>
+              <li><strong>"Distortions"</strong> (May 2018) - Radio Wave Startér finalist</li>
+              <li><strong>"Layers"</strong> (Demo Album, April 2017) - Nominated for Debut of the Year at Radio_Head Awards</li>
+            </ul>
+
+            <p>All releases are self-produced and released through <strong>Lishkee Records</strong>.</p>
+          </div>
+        </section>
+
+        <section class="glass-card p-6 space-y-4">
+          <h2 class="text-2xl font-semibold text-accent">COLLABORATIONS &amp; FEATURES</h2>
+          <div class="prose prose-invert max-w-none text-text/90">
+            <h3>International Collaborations</h3>
+            <p><strong>Concrete Noir - "Romance Ruins" (November 2025)</strong></p>
+
+            <p>Viktória Šmídová provided vocals for "Faraway Places," track 10 on this debut LP by Italian darkwave artist Piero Fragola, released via Frequens Records on November 3, 2025. The album, created entirely with modular synthesizers on Tiptop Audio's ART system, explores themes of romanticism as destruction and rebirth through eleven tracks of introspective electronic music. This collaboration represents Lishkee's first feature on a major international label release, connecting the Czech indie scene with the European darkwave and coldwave underground.</p>
+
+            <p><em>About Concrete Noir:</em> Piero Fragola is a Florence-based multimedia artist and sound designer known for his genre-defying projects including We Love (BPitch Control/Ellen Allien) and ANGLE (Tiptop Audio Records). His work as Concrete Noir explores a hybrid space where electronics, voice, and imagery merge into an introspective and shadowy form, combining wave, darkwave, and synth-pop with modular synthesis.</p>
+
+            <h4 class="mt-4">Luca Minelli Collaborations</h4>
+            <ul>
+              <li>"Endlessly" (November 2024)</li>
+              <li>"Silver (Modular Version)" (May 2025) - featuring experimental modular synthesis recorded in a single take</li>
+            </ul>
+
+            <h3 class="mt-4">Theater &amp; Multimedia Projects</h3>
+            <p><strong>Labyrint (2024-2025)</strong></p>
+            <p><strong>Site-Specific Theater Performance | Káznice, Brno</strong></p>
+
+            <p>Lishkee provided original music for this immersive theatrical experience at the former Brno prison (Káznice), one of the city's most historically significant and atmospheric cultural spaces. The performance, described as an "imaginative collage," guides audiences through the historic building while blending theatrical and audiovisual elements.</p>
+
+            <p><strong>Production Details:</strong></p>
+            <ul>
+              <li>Collaboration with Divadelní smečka (theater collective based at Káznice)</li>
+              <li>Dancers and performers from Brno</li>
+              <li>Filmmaker Petr Kačírka</li>
+              <li>Directors: Pavel Strašák and Zdeňka Kučerová</li>
+            </ul>
+
+            <p>The production reflects on the contemporary revival of this unique brownfield site while incorporating historical references to the late Baroque period (when Káznice was built) and the 1950s Communist terror era. Lishkee's atmospheric electronic compositions provided the sonic landscape for this exploration of history, memory, and transformation.</p>
+          </div>
+        </section>
+
+        <section class="glass-card p-6 space-y-4">
+          <h2 class="text-2xl font-semibold text-accent">PRESS &amp; MEDIA</h2>
+          <div class="prose prose-invert max-w-none text-text/90">
+            <h3>Featured In</h3>
+            <ul>
+              <li><strong>Full Moon Magazine (FMZine)</strong> - Czech Republic's leading independent music magazine covering both local and international music scenes, as well as film, comics, and design since 2010. Winner of Press of the Year at Nouvelle Prague festival (2018, 2019).</li>
+              <li><strong>electronica.org.uk / Frequency State</strong> - UK-based electronic music publication</li>
+              <li><strong>Radio_FM</strong> (Slovakia) - Alternative music radio station</li>
+              <li><strong>Pohoda Festival</strong> (Slovakia) - Featured artist announcement and profile</li>
+              <li><strong>Bandzone.cz</strong> - Czech music community platform</li>
+              <li><strong>Melodka Club</strong> - Brno venue featured artist profiles</li>
+            </ul>
+
+            <h4>Press Reviews &amp; Recognition</h4>
+            <p><strong>On "Silver (Modular Version)" ft. Luca Minelli:</strong></p>
+            <blockquote>"An engaging blend of dreamy synth textures and delicate vocals... The modular synths, recorded in one take, lend the track a sense of spontaneity and organic movement... maintains a delicate balance between experimental sound design and a clear, melodic core. Lishkee's music is known for its blend of indie-pop, lo-fi, indietronica, and downtempo styles. Their sound often carries a cozy, nostalgic feel, with lyrics that explore personal themes like anxiety and self-reflection." — Frequency State / electronica.org.uk (May 2025)</blockquote>
+
+            <p><strong>On Live Performance with Whyohwhy (Alterna, Brno):</strong></p>
+            <blockquote>"Lishkee otvárali s charakteristickým spojením elektronických beatov, snových gitár a jazzovo ladeného vokálu." [Lishkee opened with their characteristic combination of electronic beats, dreamy guitars and jazz-inflected vocals.] — FMZine (February 2025)</blockquote>
+
+            <p><strong>On Stereofox (FMZine "10+1" Feature):</strong></p>
+            <blockquote>"Česko-slovenské duo producenta Radima Kocourka a zpěvačky a instrumentalistky Viktórie Šmídové kombinuje psychedelii, trip hop, dream pop i experimentální prvky. Ozkoušeno na Pohodě nebo na Radiu Wave, kde se singl Distortion umístil na stříbrné příčce v soutěži začínajících skupin Startér." [Czech-Slovak duo of producer Radim Kocourek and singer/instrumentalist Viktória Šmídová combines psychedelia, trip hop, dream pop and experimental elements. Tested at Pohoda and on Radio Wave, where the single "Distortion" placed second in the Startér competition for emerging groups.] — FMZine (2018)</blockquote>
+
+            <p><strong>Pohoda Festival Artist Announcement (as Stereofox):</strong></p>
+            <blockquote>"Na Pohode zahrá aj elektronicko-gitarové duo Stereofox. Ich tvorba kombinuje psychedéliu a dream pop s experimentálnymi prvkami... Minulý rok vydali na Bandcampe demo album Layers, ktorý sa dostal na longlist Radio_Head Awards 2017 v kategórii debut roka." [At Pohoda will also play electronic-guitar duo Stereofox. Their work combines psychedelia and dream pop with experimental elements... Last year they released demo album Layers on Bandcamp, which made the longlist of Radio_Head Awards 2017 in the debut of the year category.] — Pohoda Festival (2018)</blockquote>
+
+            <p><strong>Bandzone.cz User Review:</strong></p>
+            <blockquote>"Máte na to stát se českými (moravskými) Massive Attack!!! Přejeme hodně nápadů v další tvorbě. Jste jedna z mála kapel tady, co je trochu originální." [You have what it takes to become the Czech (Moravian) Massive Attack!!! We wish you many ideas in future work. You are one of the few bands here that is somewhat original.] — Bandzone.cz</blockquote>
+
+            <h4>Awards &amp; Nominations</h4>
+            <ul>
+              <li><strong>Radio_Head Awards</strong> - Debut of the Year Nomination (longlist) for "Layers" album (Slovakia, 2017, as Stereofox)</li>
+              <li><strong>Radio Wave Startér</strong> - Second Place (Silver) with "Distortions" (Czech Republic, 2018), leading to performance at Pohoda Festival</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="glass-card p-6 space-y-4">
+          <h2 class="text-2xl font-semibold text-accent">LIVE PERFORMANCES &amp; VENUES</h2>
+          <div class="prose prose-invert max-w-none text-text/90">
+            <p>Lishkee has performed at notable venues and festivals including:</p>
+            <ul>
+              <li><strong>Pohoda Festival</strong> (Slovakia) - One of Central Europe's most prestigious music festivals</li>
+              <li><strong>Alterna Club</strong> (Brno)</li>
+              <li><strong>Melodka</strong> (Brno)</li>
+              <li><strong>Káznice</strong> (Brno) - Historic cultural space and community center</li>
+              <li>Various Czech venues as part of Pepsi Free Night and showcase events</li>
+            </ul>
+
+            <p>Their live shows feature the duo's introspective sound translated into an immersive performance experience, with layered electronics, live instrumentation, and their signature dreamy vocal delivery. The theatrical nature of their music makes them particularly suited to atmospheric and unconventional spaces.</p>
+          </div>
+        </section>
+
+        <section class="glass-card p-6 space-y-4">
+          <h2 class="text-2xl font-semibold text-accent">BAND MEMBERS</h2>
+          <div class="prose prose-invert max-w-none text-text/90">
+            <h4>Viktória Šmídová</h4>
+            <p><strong>Vocals, Production, Songwriting</strong></p>
+            <p>Creates the vocal landscapes and lyrical content that define Lishkee's introspective character</p>
+
+            <h4 class="mt-4">Radim Kocourek</h4>
+            <p><strong>Production, Instrumentation, Songwriting</strong></p>
+            <p>Handles instrumental composition, electronic production, and sonic experimentation</p>
+
+            <p class="mt-4">Both members handle all aspects of their music production from their home studio in Brno, maintaining complete creative control over their artistic output.</p>
+          </div>
+        </section>
+
+        <section class="glass-card p-6 space-y-4">
+          <h2 class="text-2xl font-semibold text-accent">CREATIVE APPROACH &amp; PHILOSOPHY</h2>
+          <div class="prose prose-invert max-w-none text-text/90">
+            <p>Lishkee's creative process embodies the DIY spirit, with all music created, recorded, and produced in their small bedroom studio. This intimate setting allows for spontaneous experimentation and detailed sonic sculpting, resulting in music that feels both carefully crafted and organically evolved.</p>
+
+            <p>The duo's willingness to experiment is evident in tracks like "Silver (Modular Version)," where modular synthesizers were recorded in a single take, embracing the unpredictability of the technology. This approach reflects their broader aesthetic: balancing control with chance, structure with improvisation, and electronic elements with human warmth.</p>
+
+            <p>Their collaboration with visual artists (photographer Tomáš Škoda), filmmakers (Petr Kačírka), and theater collectives demonstrates a multidisciplinary approach that extends beyond traditional band activities into the realm of multimedia art.</p>
+          </div>
+        </section>
+
+        <section class="glass-card p-6 space-y-4">
+          <h2 class="text-2xl font-semibold text-accent">LOCATION &amp; SCENE</h2>
+          <div class="prose prose-invert max-w-none text-text/90">
+            <p><strong>Based in:</strong> Brno, Czech Republic</p>
+
+            <p>Brno, the Czech Republic's second-largest city, has a thriving independent music and arts scene. The city is home to numerous cultural spaces, including the innovative Káznice community and cultural center where Lishkee has collaborated on theatrical productions. This rich cultural ecosystem has shaped Lishkee's artistic development and provided opportunities for experimental collaborations that blend music with visual arts, theater, and film.</p>
+          </div>
+        </section>
+
+        <section class="glass-card p-6 space-y-4">
+          <h2 class="text-2xl font-semibold text-accent">CONTACT &amp; BOOKING</h2>
+          <div class="prose prose-invert max-w-none text-text/90">
+            <p><strong>Website:</strong> <a href="https://lishkee.com">lishkee.com</a></p>
+            <p><strong>Email:</strong> Available via website contact form</p>
+            <p><strong>Location:</strong> Brno, Czech Republic</p>
+
+            <p>For booking inquiries, press interviews, or collaboration opportunities, please contact through the website.</p>
+          </div>
+        </section>
+
+        <section class="glass-card p-6 space-y-4">
+          <h2 class="text-2xl font-semibold text-accent">SOCIAL MEDIA &amp; STREAMING</h2>
+          <div class="prose prose-invert max-w-none text-text/90">
+            <ul>
+              <li><strong>Bandcamp:</strong> <a href="https://lishkee.bandcamp.com">lishkee.bandcamp.com</a></li>
+              <li><strong>Instagram:</strong> <a href="https://www.instagram.com/lishkee.music/">@lishkee.music</a> (549+ followers)</li>
+              <li><strong>Facebook:</strong> <a href="https://www.facebook.com/lishkee">facebook.com/lishkee</a></li>
+              <li><strong>Spotify:</strong> <a href="https://open.spotify.com/artist/4zzh4IMB53iM7clh96dPZH">Lishkee on Spotify</a></li>
+              <li><strong>Apple Music:</strong> <a href="https://music.apple.com/artist/lishkee">Lishkee on Apple Music</a></li>
+              <li><strong>YouTube:</strong> <a href="https://www.youtube.com/@lishkee">@lishkee</a></li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="glass-card p-6 space-y-4">
+          <h2 class="text-2xl font-semibold text-accent">TECHNICAL RIDER &amp; STAGE REQUIREMENTS</h2>
+          <div class="prose prose-invert max-w-none text-text/90">
+            <p>Available upon request for booking inquiries.</p>
+          </div>
+        </section>
+
+        <section class="glass-card p-6 space-y-4">
+          <h2 class="text-2xl font-semibold text-accent">PRESS PHOTOS</h2>
+          <div class="prose prose-invert max-w-none text-text/90">
+            <p>High-resolution press photos available at <a href="https://lishkee.com">lishkee.com</a></p>
+            <p><strong>Photography credit:</strong> Tomáš Škoda</p>
+          </div>
+        </section>
+
+        <section class="glass-card p-6 space-y-4">
+          <h2 class="text-2xl font-semibold text-accent">FUTURE PROJECTS</h2>
+          <div class="prose prose-invert max-w-none text-text/90">
+            <p>Lishkee is currently in the process of creating their second full-length album, which promises to push their sound further while maintaining the intimate, experimental DIY aesthetic that defines their work. Following the success of their debut "Collections of Pink, Blue, &amp; All the Other Colors, Too," the upcoming album will showcase their continued growth as artists and their willingness to explore new sonic territories, from modular synthesis experiments to deeper collaborations with international artists.</p>
+
+            <p>The band continues to balance studio work with live performances and multimedia collaborations, maintaining their connection to Brno's vibrant cultural scene while expanding their reach internationally through features like the Concrete Noir collaboration.</p>
+          </div>
+        </section>
+
+        <section class="glass-card p-6 space-y-4">
+          <h2 class="text-2xl font-semibold text-accent">ABOUT THIS EPK</h2>
+          <div class="prose prose-invert max-w-none text-text/90">
+            <p>This electronic press kit contains essential information for press, radio, venues, and festival bookers. For additional materials, interview requests, or booking inquiries, please contact the band through their website or social media channels.</p>
+            <p><strong>Last Updated:</strong> December 2024</p>
+            <p class="italic">"Endless observers ✨ Music makers"</p>
+            <p class="mt-2">— Lishkee</p>
+          </div>
+        </section>
+      </main>
+
+      <!-- Sidebar: quick actions, contact, thumbnails -->
+      <aside class="space-y-6">
+        <div class="glass-card p-6 text-center">
+          <p class="text-text/70 mb-3">Full press pack</p>
+          <a href={zipPath} download class="btn-gradient block w-full py-3 mb-3">Download ZIP</a>
+          <p class="text-text/70 text-sm">Includes: PDF press kit, hi-res photos, logos, audio previews, press quotes, and tech rider.</p>
+        </div>
+
+        <div class="glass-card p-6">
+          <h4 class="text-accent font-semibold mb-2">Contact &amp; booking</h4>
+          <p class="text-text/80">Booking / press via the website contact form: <a href="https://lishkee.com">lishkee.com</a></p>
+          <p class="text-text/80 mt-3"><strong>Location:</strong> Brno, Czech Republic</p>
+        </div>
+
+        <div class="glass-card p-6">
+          <h4 class="text-accent font-semibold mb-2">Press photos (quick thumbnails)</h4>
+          <div class="grid grid-cols-2 gap-2">
+            {images.map((src) => (
+              <a href={src} target="_blank" rel="noopener noreferrer">
+                <img src={src} alt="Lishkee photo" class="w-full h-24 object-cover rounded-md" onerror="this.style.display='none'" />
+              </a>
+            ))}
+          </div>
+        </div>
+      </aside>
+    </div>
+
+</BaseLayout>
