@@ -322,3 +322,24 @@
     transform: translateY(0);
   }
 }
+
+/* ------------------------------------------------------------------------- */
+/* Disable all transitions & animations                                      */
+/* This override ensures the site has no CSS transitions or animations.      */
+/* It uses !important so it overrides component-level declarations.         */
+/* ------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  transition: none !important;
+  transition-duration: 0s !important;
+  animation: none !important;
+  animation-duration: 0s !important;
+  will-change: auto !important;
+}
+
+/* Disable view-transition pseudo-element animations if present */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none !important;
+}
