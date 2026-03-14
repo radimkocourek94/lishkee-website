@@ -1,0 +1,111 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro"
+import { band } from "../data/band"
+
+/**
+ * Renders the bio text with:
+ * - Markdown-style *italic* for album/single titles
+ * - Specific phrases linked (with TODO placeholders for real URLs)
+ * - Paragraph breaks preserved
+ */
+function renderBio(bio: string): string {
+  let html = bio
+    // Escape HTML entities first
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+
+  // Convert *text* to <em>text</em>
+  html = html.replace(/\*([^*]+)\*/g, "<em>$1</em>")
+
+  // Add hyperlinks for specific phrases
+  // TODO: Replace "#" hrefs with real URLs when available
+  html = html.replace(
+    /<em>Layers<\/em>/g,
+    '<a href="#" class="text-[#c9a84c] hover:text-[#d4b85e] underline underline-offset-2"><!-- TODO: link to Layers album/release --><em>Layers</em></a>'
+  )
+  html = html.replace(
+    /<em>Distortions<\/em>/g,
+    '<a href="#" class="text-[#c9a84c] hover:text-[#d4b85e] underline underline-offset-2"><!-- TODO: link to Distortions single --><em>Distortions</em></a>'
+  )
+  html = html.replace(
+    /<em>Labyrint<\/em>/g,
+    '<a href="#" class="text-[#c9a84c] hover:text-[#d4b85e] underline underline-offset-2"><!-- TODO: link to Labyrint performance info --><em>Labyrint</em></a>'
+  )
+  html = html.replace(
+    /their socials/g,
+    '<a href="#" class="text-[#c9a84c] hover:text-[#d4b85e] underline underline-offset-2"><!-- TODO: link to social hub or Linktree -->their socials</a>'
+  )
+
+  // Split into paragraphs
+  html = html
+    .split("\n\n")
+    .map((p) => `<p class="mb-4">${p.trim()}</p>`)
+    .join("")
+
+  return html
+}
+
+const bioHtml = renderBio(band.bio)
+
+const socialLabels: Record<string, string> = {
+  instagram: "Instagram",
+  facebook: "Facebook",
+  bandcamp: "Bandcamp",
+  spotify: "Spotify",
+}
+---
+
+<BaseLayout title="About — Lishkee">
+  {/* Full-width band photo */}
+  <div class="w-full h-[40vh] sm:h-[50vh] overflow-hidden">
+    <img
+      src="/images/Lishkee4_Tomáš_Škoda..jpg"
+      alt="Lishkee band photo"
+      class="w-full h-full object-cover"
+    />
+  </div>
+
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    {/* Page heading */}
+    <h1 class="font-[Cormorant_Garamond] text-4xl sm:text-5xl font-semibold text-[#c9a84c] mb-8 text-center">
+      About Lishkee
+    </h1>
+
+    {/* Bio text */}
+    <div class="text-[#f0f0f0]/90 text-base sm:text-lg leading-relaxed mb-12" set:html={bioHtml} />
+
+    {/* Members section */}
+    <section class="mb-12">
+      <h2 class="font-[Cormorant_Garamond] text-2xl font-semibold text-[#c9a84c] mb-4">Members</h2>
+      <ul class="space-y-2">
+        {band.members.map((member) => (
+          <li class="text-[#f0f0f0]">{member.name}</li>
+        ))}
+      </ul>
+      <p class="text-[#888888] text-sm mt-2">{band.location}</p>
+    </section>
+
+    {/* Socials section — only render links with non-empty values */}
+    <section class="mb-12">
+      <h2 class="font-[Cormorant_Garamond] text-2xl font-semibold text-[#c9a84c] mb-4">Follow Us</h2>
+      <div class="flex flex-wrap gap-3">
+        {Object.entries(band.socials).map(([key, url]) =>
+          url ? (
+            <a
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-block px-5 py-2 border border-[#c9a84c] text-[#c9a84c] rounded-full text-sm font-medium hover:bg-[#c9a84c] hover:text-[#0a0a0a] transition-colors"
+            >
+              {socialLabels[key] || key}
+            </a>
+          ) : null
+        )}
+        {Object.values(band.socials).every((url) => !url) && (
+          <p class="text-[#888888] text-sm italic">Social links coming soon — add URLs in src/data/band.ts</p>
+        )}
+      </div>
+    </section>
+  </div>
+</BaseLayout>

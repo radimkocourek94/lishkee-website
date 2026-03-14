@@ -1,0 +1,50 @@
+---
+/**
+ * MailingListForm — mailing list signup CTA.
+ * Uses Netlify Forms attribute for post-deploy compatibility.
+ * For local dev, the form submits without error.
+ */
+---
+
+<section class="py-16 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-xl mx-auto text-center">
+    <h2 class="font-[Cormorant_Garamond] text-3xl sm:text-4xl font-semibold text-[#c9a84c] mb-4">
+      Stay in the Loop
+    </h2>
+    <p class="text-[#f0f0f0] mb-8">
+      Join our mailing list for the latest news!
+    </p>
+
+    <form
+      name="mailing-list"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      class="flex flex-col sm:flex-row gap-3 justify-center"
+    >
+      {/* Honeypot field for spam prevention */}
+      <p class="hidden">
+        <label>
+          Don't fill this out: <input name="bot-field" />
+        </label>
+      </p>
+
+      <input type="hidden" name="form-name" value="mailing-list" />
+
+      <input
+        type="email"
+        name="email"
+        required
+        placeholder="your@email.com"
+        class="px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-[#f0f0f0] placeholder-[#888888] focus:outline-none focus:border-[#c9a84c] focus:ring-1 focus:ring-[#c9a84c] transition-colors flex-1 max-w-sm"
+      />
+
+      <button
+        type="submit"
+        class="px-6 py-3 bg-[#c9a84c] hover:bg-[#d4b85e] text-[#0a0a0a] font-semibold rounded-lg transition-colors cursor-pointer"
+      >
+        Sign Up
+      </button>
+    </form>
+  </div>
+</section>

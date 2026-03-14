@@ -1,0 +1,60 @@
+---
+import { band } from "../data/band"
+---
+
+<nav class="sticky top-0 z-50 bg-[#0a0a0a]/95 backdrop-blur-sm border-b border-white/5">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logotype -->
+      <a href="/" class="font-[Cormorant_Garamond] text-2xl font-semibold tracking-wide text-[#c9a84c] hover:text-[#d4b85e] transition-colors">
+        {band.logotype}
+      </a>
+
+      <!-- Desktop nav links -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="/" class="text-sm font-medium text-[#f0f0f0] hover:text-[#c9a84c] transition-colors">Home</a>
+        <a href="/music" class="text-sm font-medium text-[#f0f0f0] hover:text-[#c9a84c] transition-colors">Music</a>
+        <a href="/about" class="text-sm font-medium text-[#f0f0f0] hover:text-[#c9a84c] transition-colors">About</a>
+      </div>
+
+      <!-- Hamburger button (mobile) -->
+      <button
+        id="hamburger-btn"
+        class="md:hidden p-2 text-[#f0f0f0] hover:text-[#c9a84c] transition-colors"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path id="hamburger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile drawer -->
+  <div id="mobile-menu" class="md:hidden hidden">
+    <div class="px-4 pt-2 pb-4 space-y-2 border-t border-white/5">
+      <a href="/" class="block py-2 text-sm font-medium text-[#f0f0f0] hover:text-[#c9a84c] transition-colors">Home</a>
+      <a href="/music" class="block py-2 text-sm font-medium text-[#f0f0f0] hover:text-[#c9a84c] transition-colors">Music</a>
+      <a href="/about" class="block py-2 text-sm font-medium text-[#f0f0f0] hover:text-[#c9a84c] transition-colors">About</a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const btn = document.getElementById("hamburger-btn")
+  const menu = document.getElementById("mobile-menu")
+  const icon = document.getElementById("hamburger-icon") as SVGPathElement | null
+
+  btn?.addEventListener("click", () => {
+    const isOpen = !menu?.classList.contains("hidden")
+    menu?.classList.toggle("hidden")
+    btn.setAttribute("aria-expanded", String(!isOpen))
+    if (icon) {
+      icon.setAttribute(
+        "d",
+        isOpen ? "M4 6h16M4 12h16M4 18h16" : "M6 18L18 6M6 6l12 12"
+      )
+    }
+  })
+</script>

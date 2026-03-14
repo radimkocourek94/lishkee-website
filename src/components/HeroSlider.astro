@@ -1,0 +1,31 @@
+---
+/**
+ * HeroSlider — full-width hero with CSS fade transitions.
+ * Add or remove images from the array below to change the slideshow.
+ */
+const heroImages = [
+  "/images/Lishkee1_Tomáš_Škoda.jpg",
+  "/images/Lishkee2_Tomáš_Škoda.jpg",
+  "/images/Lishkee3_Tomáš_Škoda..jpg",
+]
+---
+
+<section class="relative w-full min-h-[80vh] overflow-hidden">
+  {heroImages.map((src, i) => (
+    <div
+      class:list={[
+        "hero-slide absolute inset-0 w-full h-full",
+        i === 0 ? "z-10" : "z-0",
+      ]}
+    >
+      <img
+        src={src}
+        alt={`Lishkee band photo ${i + 1}`}
+        class="w-full h-full object-cover"
+        loading={i === 0 ? "eager" : "lazy"}
+      />
+      <!-- Dark overlay for readability -->
+      <div class="absolute inset-0 bg-black/30" />
+    </div>
+  ))}
+</section>

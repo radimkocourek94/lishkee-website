@@ -1,0 +1,60 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro"
+import TrackList from "../components/TrackList.astro"
+import { releases } from "../data/releases"
+---
+
+<BaseLayout title="Music — Lishkee">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    {/* Page heading */}
+    <h1 class="font-[Cormorant_Garamond] text-4xl sm:text-5xl font-semibold text-[#c9a84c] mb-12 text-center">
+      Music
+    </h1>
+
+    {/* Releases section */}
+    <section class="mb-16">
+      <h2 class="font-[Cormorant_Garamond] text-3xl font-semibold text-[#c9a84c] mb-8">Releases</h2>
+
+      {releases.map((release) => (
+        <div class="mb-12">
+          <div class="flex flex-col sm:flex-row gap-6 mb-6">
+            {/* Cover art */}
+            <div class="w-full sm:w-48 shrink-0">
+              <img
+                src={release.coverArt}
+                alt={`${release.title} cover art`}
+                class="w-full aspect-square object-cover rounded-lg bg-white/5"
+                onerror="this.style.display='none'"
+              />
+              {/* Fallback placeholder if image fails to load */}
+              <div class="w-full aspect-square bg-white/5 rounded-lg flex items-center justify-center hidden" id="cover-fallback">
+                <span class="text-[#888888] text-xs italic">Cover art</span>
+              </div>
+            </div>
+
+            {/* Release info */}
+            <div class="flex-1">
+              <h3 class="text-xl font-semibold text-[#f0f0f0] mb-1">{release.title}</h3>
+              <p class="text-[#888888] text-sm mb-3">{release.year}</p>
+              {release.description && (
+                <p class="text-[#f0f0f0]/80">{release.description}</p>
+              )}
+            </div>
+          </div>
+
+          {/* Full album Bandcamp embed */}
+          {release.albumEmbedHtml ? (
+            <div class="w-full" set:html={release.albumEmbedHtml} />
+          ) : (
+            <div class="w-full h-[120px] bg-white/5 rounded-lg flex items-center justify-center">
+              <span class="text-[#888888] text-sm italic">Album player coming soon — paste Bandcamp embed in releases.ts</span>
+            </div>
+          )}
+        </div>
+      ))}
+    </section>
+  </div>
+
+  {/* Tracks section */}
+  <TrackList />
+</BaseLayout>
