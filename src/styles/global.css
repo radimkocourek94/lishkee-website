@@ -43,8 +43,10 @@
   --color-glow: #fda40930;
 
   /* ── Fonts ── */
-  --font-body: "Inter", sans-serif;
-  --font-display: "Cormorant Garamond", serif;
+  /* Primary UI font for body text */
+  --font-body: "Archivo Narrow", sans-serif;
+  /* Display font for logotype/major headlines */
+  --font-display: "Gajraj One", sans-serif;
 }
 
 @layer base {
@@ -76,6 +78,11 @@
     background-color: var(--color-selection);
     color: var(--color-text);
   }
+}
+
+/* Utility to opt-in an element for the display font (Gajraj One) */
+.font-gajraj {
+  font-family: var(--font-display) !important;
 }
 
 /* ── Scroll-triggered animations ── */

@@ -11,7 +11,7 @@ const otherTracks = tracks.filter((t) => t !== featuredTrack)
   {/* Section header */}
   <div class="text-center mb-12">
     <span class="accent-line mb-4 block mx-auto" />
-    <h2 class="font-[Cormorant_Garamond] text-3xl sm:text-5xl font-semibold text-accent mb-3">
+    <h2 class="text-3xl sm:text-5xl font-semibold text-accent mb-3">
       Latest Tracks
     </h2>
     <p class="text-muted text-sm sm:text-base">Explore our music</p>
@@ -26,7 +26,7 @@ const otherTracks = tracks.filter((t) => t !== featuredTrack)
         </div>
         <div class="flex-1 text-center sm:text-left">
           <span class="text-accent/60 text-xs font-mono uppercase tracking-widest">Latest Single</span>
-          <h3 class="font-[Cormorant_Garamond] text-2xl sm:text-3xl font-semibold text-text mt-2 mb-2">
+          <h3 class="text-2xl sm:text-3xl font-semibold text-text mt-2 mb-2">
             {featuredTrack.title}
           </h3>
           {featuredTrack.duration && (
@@ -53,7 +53,7 @@ const otherTracks = tracks.filter((t) => t !== featuredTrack)
       <article class="glass-card p-5 sm:p-6 group">
         <div class="flex items-start gap-4">
           {/* Track number */}
-          <div class="hidden sm:flex items-center justify-center w-10 h-10 rounded-full bg-accent/10 text-accent font-[Cormorant_Garamond] text-lg font-bold shrink-0 group-hover:bg-accent/20 transition-colors">
+          <div class="hidden sm:flex items-center justify-center w-10 h-10 rounded-full bg-accent/10 text-accent text-lg font-bold shrink-0 group-hover:bg-accent/20 transition-colors">
             {String(index + 1).padStart(2, "0")}
           </div>
 
