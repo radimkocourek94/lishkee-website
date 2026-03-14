@@ -44,7 +44,9 @@ import { releases } from "../data/releases"
 
           {/* Full album Bandcamp embed */}
           {release.albumEmbedHtml ? (
-            <div class="w-full" set:html={release.albumEmbedHtml} />
+            <div class="w-full flex justify-center">
+              <div set:html={release.albumEmbedHtml} />
+            </div>
           ) : (
             <div class="w-full h-[120px] bg-white/5 rounded-lg flex items-center justify-center">
               <span class="text-muted text-sm italic">Album player coming soon — paste Bandcamp embed in releases.ts</span>
