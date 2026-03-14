@@ -2,13 +2,30 @@
 import Nav from "../components/Nav.astro"
 import Footer from "../components/Footer.astro"
 import "../styles/global.css"
+import { band } from "../data/band"
 
 interface Props {
   title: string
   description?: string
+  image?: string
+  url?: string
 }
 
-const { title, description = "Lishkee — indie alt-pop from Brno, Czechia" } = Astro.props
+const {
+  title,
+  description = "Lishkee — indie alt-pop from Brno, Czechia",
+  image = "/images/collections-cover.jpg",
+  url = Astro.site || "https://example.com",
+} = Astro.props
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "MusicGroup",
+  name: band.name,
+  url,
+  sameAs: Object.values(band.socials).filter(Boolean),
+  member: band.members.map((m) => ({ "@type": "Person", name: m.name })),
+}
 ---
 
 <!doctype html>
@@ -25,6 +42,12 @@ const { title, description = "Lishkee — indie alt-pop from Brno, Czechia" } = 
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={image} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
   </head>
   <body class="min-h-screen flex flex-col">
     <Nav />

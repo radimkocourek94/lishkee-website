@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro"
 import TrackList from "../components/TrackList.astro"
 import { releases } from "../data/releases"
+import makeResponsiveEmbed from "../utils/embed"
 ---
 
 <BaseLayout title="Music — Lishkee">
@@ -45,7 +46,7 @@ import { releases } from "../data/releases"
           {/* Full album Bandcamp embed */}
           {release.albumEmbedHtml ? (
             <div class="w-full flex justify-center">
-              <div set:html={release.albumEmbedHtml} />
+              <div class="w-full max-w-2xl" set:html={makeResponsiveEmbed(release.albumEmbedHtml)} />
             </div>
           ) : (
             <div class="w-full h-[120px] bg-white/5 rounded-lg flex items-center justify-center">
