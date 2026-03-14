@@ -85,6 +85,11 @@
   font-family: var(--font-display) !important;
 }
 
+/* Utility to explicitly use the body font (Archivo Narrow) */
+.font-body {
+  font-family: var(--font-body) !important;
+}
+
 /* ── Scroll-triggered animations ── */
 @keyframes fadeInUp {
   from {
