@@ -1,9 +1,70 @@
 ---
 import { band } from "../data/band"
+
+const year = new Date().getFullYear()
+const socialLabels: Record<string, string> = {
+  instagram: "Instagram",
+  youtube: "YouTube",
+  facebook: "Facebook",
+  spotify: "Spotify",
+  soundcloud: "SoundCloud",
+  bandcamp: "Bandcamp",
+  threads: "Threads",
+  tiktok: "TikTok",
+}
 ---
 
-<footer class="border-t border-white/5 py-8 mt-16">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-muted">
-    <p>📷 {band.photoCredit} &nbsp;|&nbsp; Some images ©</p>
+<footer class="relative border-t border-white/5 mt-0">
+  {/* Gradient top edge */}
+  <div class="section-divider" />
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12">
+      {/* Brand */}
+      <div>
+        <a href="/" class="font-[Cormorant_Garamond] text-2xl font-semibold text-accent hover:text-accent-hover transition-colors">
+          {band.logotype}
+        </a>
+        <p class="text-muted text-sm mt-2">{band.location}</p>
+      </div>
+
+      {/* Quick links */}
+      <div>
+        <h3 class="text-sm font-semibold text-text uppercase tracking-wider mb-3">Navigate</h3>
+        <div class="space-y-2">
+          <a href="/" class="block text-sm text-muted hover:text-accent transition-colors">Home</a>
+          <a href="/music" class="block text-sm text-muted hover:text-accent transition-colors">Music</a>
+          <a href="/about" class="block text-sm text-muted hover:text-accent transition-colors">About</a>
+        </div>
+      </div>
+
+      {/* Social links */}
+      <div>
+        <h3 class="text-sm font-semibold text-text uppercase tracking-wider mb-3">Connect</h3>
+        <div class="space-y-2">
+          {Object.entries(band.socials).map(([key, url]) =>
+            url ? (
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block text-sm text-muted hover:text-accent transition-colors"
+              >
+                {socialLabels[key] || key}
+              </a>
+            ) : null
+          )}
+          {Object.values(band.socials).every((url) => !url) && (
+            <p class="text-muted text-sm italic">Coming soon</p>
+          )}
+        </div>
+      </div>
+    </div>
+
+    {/* Bottom bar */}
+    <div class="mt-10 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted">
+      <p>&copy; {year} {band.name}. All rights reserved.</p>
+      <p>Photos by {band.photoCredit}</p>
+    </div>
   </div>
 </footer>

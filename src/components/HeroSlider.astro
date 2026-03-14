@@ -1,8 +1,10 @@
 ---
 /**
- * HeroSlider — full-width hero with CSS fade transitions.
- * Add or remove images from the array below to change the slideshow.
+ * HeroSlider — full-width hero with CSS fade transitions,
+ * band name overlay, and scroll-down indicator.
  */
+import { band } from "../data/band"
+
 const heroImages = [
   "/images/Lishkee1_Tomáš_Škoda.jpg",
   "/images/Lishkee2_Tomáš_Škoda.jpg",
@@ -10,7 +12,8 @@ const heroImages = [
 ]
 ---
 
-<section class="relative w-full min-h-[80vh] overflow-hidden">
+<section class="relative w-full h-screen overflow-hidden noise-overlay">
+  {/* Slideshow images */}
   {heroImages.map((src, i) => (
     <div
       class:list={[
@@ -24,9 +27,46 @@ const heroImages = [
         class="w-full h-full object-cover object-[center_20%]"
         loading={i === 0 ? "eager" : "lazy"}
       />
-      <!-- Dark overlay for readability -->
-      <div class="absolute inset-0 bg-black/30" />
     </div>
   ))}
-  <!-- Hero slider only — embed moved to the Tracks section as 'Latest track' -->
+
+  {/* Gradient overlays */}
+  <div class="absolute inset-0 z-20 bg-gradient-to-b from-bg/60 via-transparent to-bg" />
+  <div class="absolute inset-0 z-20 bg-gradient-to-r from-bg/40 via-transparent to-bg/40" />
+
+  {/* Center content */}
+  <div class="absolute inset-0 z-30 flex flex-col items-center justify-center text-center px-4">
+    {/* Decorative line above */}
+    <div class="accent-line mb-6 animate-fade-in" />
+
+    {/* Band name */}
+    <h1 class="font-[Cormorant_Garamond] text-5xl sm:text-7xl md:text-8xl font-bold text-white tracking-wider animate-fade-in-up drop-shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
+      Lishkee
+    </h1>
+
+    {/* Tagline */}
+    <p class="mt-4 text-lg sm:text-xl text-white/80 font-light tracking-widest uppercase animate-fade-in-up delay-200">
+      Indie Alt-Pop from Brno
+    </p>
+
+    {/* CTA buttons */}
+    <div class="mt-8 flex flex-wrap gap-4 justify-center animate-fade-in-up delay-400">
+      <a href="/music" class="btn-gradient text-sm sm:text-base">
+        Listen Now
+      </a>
+      <a href="/about" class="px-6 py-3 border border-white/30 text-white rounded-xl text-sm sm:text-base font-medium hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm">
+        Learn More
+      </a>
+    </div>
+  </div>
+
+  {/* Scroll indicator */}
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 animate-bounce-subtle">
+    <div class="flex flex-col items-center gap-2">
+      <span class="text-white/50 text-xs uppercase tracking-widest">Scroll</span>
+      <svg class="w-5 h-5 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
+    </div>
+  </div>
 </section>

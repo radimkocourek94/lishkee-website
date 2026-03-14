@@ -10,37 +10,32 @@ import { band } from "../data/band"
  */
 function renderBio(bio: string): string {
   let html = bio
-    // Escape HTML entities first
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
 
-  // Convert *text* to <em>text</em>
   html = html.replace(/\*([^*]+)\*/g, "<em>$1</em>")
 
-  // Add hyperlinks for specific phrases
-  // TODO: Replace "#" hrefs with real URLs when available
   html = html.replace(
     /<em>Layers<\/em>/g,
-    '<a href="#" class="text-accent hover:text-accent-hover underline underline-offset-2"><!-- TODO: link to Layers album/release --><em>Layers</em></a>'
+    '<a href="#" class="text-accent hover:text-accent-hover underline underline-offset-2 transition-colors"><em>Layers</em></a>'
   )
   html = html.replace(
     /<em>Distortions<\/em>/g,
-    '<a href="#" class="text-accent hover:text-accent-hover underline underline-offset-2"><!-- TODO: link to Distortions single --><em>Distortions</em></a>'
+    '<a href="#" class="text-accent hover:text-accent-hover underline underline-offset-2 transition-colors"><em>Distortions</em></a>'
   )
   html = html.replace(
     /<em>Labyrint<\/em>/g,
-    '<a href="#" class="text-accent hover:text-accent-hover underline underline-offset-2"><!-- TODO: link to Labyrint performance info --><em>Labyrint</em></a>'
+    '<a href="#" class="text-accent hover:text-accent-hover underline underline-offset-2 transition-colors"><em>Labyrint</em></a>'
   )
   html = html.replace(
     /their socials/g,
-    '<a href="#" class="text-accent hover:text-accent-hover underline underline-offset-2"><!-- TODO: link to social hub or Linktree -->their socials</a>'
+    '<a href="#" class="text-accent hover:text-accent-hover underline underline-offset-2 transition-colors">their socials</a>'
   )
 
-  // Split into paragraphs
   html = html
     .split("\n\n")
-    .map((p) => `<p class="mb-4">${p.trim()}</p>`)
+    .map((p) => `<p class="mb-6 leading-relaxed">${p.trim()}</p>`)
     .join("")
 
   return html
@@ -50,60 +45,109 @@ const bioHtml = renderBio(band.bio)
 
 const socialLabels: Record<string, string> = {
   instagram: "Instagram",
+  youtube: "YouTube",
   facebook: "Facebook",
-  bandcamp: "Bandcamp",
   spotify: "Spotify",
+  soundcloud: "SoundCloud",
+  bandcamp: "Bandcamp",
+  threads: "Threads",
+  tiktok: "TikTok",
+}
+
+const socialIcons: Record<string, string> = {
+  instagram: "M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z",
+  youtube: "M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z",
+  facebook: "M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z",
+  spotify: "M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z",
+  soundcloud: "M1.175 12.225c-.051 0-.094.046-.101.1l-.233 2.154.233 2.105c.007.058.05.098.101.098.05 0 .09-.04.099-.098l.255-2.105-.27-2.154c-.009-.06-.05-.1-.1-.1m-.899.828c-.06 0-.091.037-.104.094L0 14.479l.172 1.282c.013.06.045.094.104.094.057 0 .09-.037.104-.094l.2-1.282-.2-1.332c-.014-.057-.047-.094-.104-.094m1.8-1.16c-.066 0-.108.05-.117.108l-.2 2.484.2 2.396c.009.06.054.107.117.107.063 0 .107-.048.116-.107l.222-2.396-.222-2.484c-.009-.06-.053-.108-.116-.108m.899-.418c-.074 0-.122.055-.13.12l-.172 2.9.172 2.793c.008.066.056.12.13.12.073 0 .12-.054.129-.12l.198-2.793-.198-2.9c-.009-.065-.056-.12-.13-.12m.9-.2c-.084 0-.135.063-.139.132l-.16 3.1.16 2.96c.004.07.055.132.14.132.08 0 .134-.062.138-.132l.178-2.96-.178-3.1c-.004-.07-.058-.132-.14-.132m.899-.167c-.09 0-.145.07-.148.143l-.146 3.267.146 3.018c.003.076.058.143.148.143.088 0 .145-.067.147-.143l.165-3.018-.165-3.267c-.002-.073-.06-.143-.147-.143m1.043-.215c-.097 0-.157.076-.16.155l-.14 3.482.14 3.073c.003.08.063.155.16.155.094 0 .157-.075.16-.155l.154-3.073-.154-3.482c-.003-.08-.066-.155-.16-.155m.882-.141c-.104 0-.17.082-.173.165l-.127 3.623.127 3.105c.003.085.07.165.173.165.104 0 .17-.08.175-.165l.142-3.105-.142-3.623c-.005-.083-.07-.165-.175-.165m1.056-.157c-.114 0-.182.09-.185.176l-.114 3.78.114 3.12c.003.09.071.176.185.176.112 0 .182-.086.186-.176l.13-3.12-.13-3.78c-.004-.087-.074-.176-.186-.176m.899-.084c-.12 0-.195.095-.198.187l-.105 3.862.105 3.128c.003.094.079.187.198.187.12 0 .194-.093.198-.187l.118-3.128-.118-3.862c-.004-.092-.079-.187-.198-.187m1.047-.07c-.13 0-.206.1-.209.198l-.093 3.933.093 3.14c.003.1.08.198.21.198.127 0 .205-.098.208-.198l.106-3.14-.106-3.933c-.003-.098-.08-.198-.209-.198m.896.011c-.136 0-.217.106-.22.21l-.083 3.92.083 3.15c.003.106.084.21.22.21.135 0 .217-.104.22-.21l.094-3.15-.094-3.92c-.003-.104-.085-.21-.22-.21m1.062-.075c-.144 0-.23.112-.231.22l-.072 3.997.072 3.154c.001.11.087.22.23.22.144 0 .23-.11.232-.22l.08-3.154-.08-3.997c-.002-.108-.088-.22-.231-.22m.96.108c-.15 0-.24.115-.242.228l-.065 3.89.065 3.16c.002.114.091.228.241.228.148 0 .24-.114.241-.228l.073-3.16-.073-3.89c-.001-.113-.093-.228-.24-.228m1.067-.245c-.16 0-.253.122-.254.24l-.053 4.135.053 3.165c.001.12.094.24.254.24.158 0 .252-.12.253-.24l.06-3.165-.06-4.135c-.001-.118-.095-.24-.253-.24m.882.189c-.163 0-.258.125-.259.247l-.048 3.945.048 3.17c.001.124.096.247.259.247.162 0 .258-.123.259-.247l.054-3.17-.054-3.945c-.001-.122-.097-.247-.26-.247m1.133-.466c-.04-.04-.09-.065-.15-.065-.06 0-.11.025-.15.065-.04.04-.065.09-.065.148l-.05 4.262.05 3.158c.001.06.025.11.065.148.04.04.09.065.15.065.06 0 .11-.025.15-.065.04-.038.065-.088.066-.148l.054-3.158-.054-4.262c-.001-.058-.026-.108-.066-.148m.882.37c-.163 0-.26.128-.261.252l-.04 3.64.04 3.178c.001.126.098.252.261.252.163 0 .26-.126.261-.252l.046-3.178-.046-3.64c-.001-.124-.098-.252-.261-.252m22.048 2.678c-.502 0-.98.106-1.412.298-.287-3.256-3.015-5.808-6.343-5.808-1.602 0-3.063.603-4.182 1.58-.244.213-.31.494-.312.772V20.16c.003.296.244.54.542.55h11.707c2.318 0 4.2-1.882 4.2-4.2s-1.882-4.2-4.2-4.2",
+  bandcamp: "M0 18.75l7.437-13.5H24l-7.438 13.5z",
+  threads: "M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.59 12c.025 3.086.718 5.496 2.057 7.164 1.432 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.96-.065-1.182.408-2.256 1.33-3.022.868-.722 2.05-1.128 3.42-1.176 1.012-.036 1.955.079 2.82.34-.075-.648-.272-1.14-.59-1.464-.408-.418-1.066-.632-1.96-.638h-.08c-.698 0-1.97.2-2.703 1.005l-1.39-1.215c1.042-1.146 2.553-1.727 4.093-1.727h.096c2.96.023 4.665 1.88 4.665 5.088v.07c1.2.828 2.1 1.9 2.596 3.137.697 1.737.682 4.603-1.594 6.885C19.088 22.848 16.691 23.975 12.186 24zm-1.248-7.89c-.882.046-1.543.306-1.966.668-.415.356-.583.76-.567 1.072.033.607.81 1.59 2.756 1.487 1.18-.065 2.08-.483 2.674-1.244.396-.507.665-1.16.81-1.962-.837-.258-1.76-.388-2.75-.388-.325 0-.653.015-.977.044l.02.323z",
+  tiktok: "M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z",
 }
 ---
 
 <BaseLayout title="About — Lishkee">
-  {/* Full-width band photo */}
-  <div class="w-full h-[50vh] sm:h-[60vh] overflow-hidden">
+  {/* Hero banner with band photo */}
+  <div class="relative w-full h-[50vh] sm:h-[65vh] overflow-hidden">
     <img
       src="/images/Lishkee4_Tomáš_Škoda..jpg"
       alt="Lishkee band photo"
       class="w-full h-full object-cover object-[center_20%]"
     />
+    {/* Gradient overlays */}
+    <div class="absolute inset-0 bg-gradient-to-b from-bg/40 via-transparent to-bg" />
+    <div class="absolute inset-0 bg-gradient-to-t from-bg via-bg/20 to-transparent" />
+
+    {/* Page title overlaid */}
+    <div class="absolute bottom-12 left-0 right-0 z-10 text-center">
+      <span class="accent-line mb-4 block mx-auto" />
+      <h1 class="font-[Cormorant_Garamond] text-4xl sm:text-6xl font-bold text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
+        About Lishkee
+      </h1>
+    </div>
   </div>
 
-  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    {/* Page heading */}
-    <h1 class="font-[Cormorant_Garamond] text-4xl sm:text-5xl font-semibold text-accent mb-8 text-center">
-      About Lishkee
-    </h1>
-
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     {/* Bio text */}
-    <div class="text-text/90 text-base sm:text-lg leading-relaxed mb-12" set:html={bioHtml} />
+    <div class="text-text/85 text-base sm:text-lg leading-relaxed mb-16" set:html={bioHtml} />
+
+    <div class="section-divider mb-16" />
 
     {/* Members section */}
-    <section class="mb-12">
-      <h2 class="font-[Cormorant_Garamond] text-2xl font-semibold text-accent mb-4">Members</h2>
-      <ul class="space-y-2">
+    <section class="mb-16">
+      <div class="text-center mb-8">
+        <span class="accent-line mb-4 block mx-auto" />
+        <h2 class="font-[Cormorant_Garamond] text-3xl sm:text-4xl font-semibold text-accent">
+          The Duo
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {band.members.map((member) => (
-          <li class="text-text">{member.name}</li>
+          <div class="glass-card p-6 text-center">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-accent/10 flex items-center justify-center">
+              <span class="font-[Cormorant_Garamond] text-2xl font-bold text-accent">
+                {member.name.charAt(0)}
+              </span>
+            </div>
+            <h3 class="text-lg font-semibold text-text">{member.name}</h3>
+          </div>
         ))}
-      </ul>
-      <p class="text-muted text-sm mt-2">{band.location}</p>
+      </div>
+      <p class="text-center text-muted text-sm mt-6">
+        Based in {band.location}
+      </p>
     </section>
 
-    {/* Socials section — only render links with non-empty values */}
-    <section class="mb-12">
-      <h2 class="font-[Cormorant_Garamond] text-2xl font-semibold text-accent mb-4">Follow Us</h2>
-      <div class="flex flex-wrap gap-3">
+    <div class="section-divider mb-16" />
+
+    {/* Socials section */}
+    <section class="mb-8">
+      <div class="text-center mb-8">
+        <span class="accent-line mb-4 block mx-auto" />
+        <h2 class="font-[Cormorant_Garamond] text-3xl sm:text-4xl font-semibold text-accent">
+          Follow Us
+        </h2>
+      </div>
+
+      <div class="flex flex-wrap gap-3 justify-center">
         {Object.entries(band.socials).map(([key, url]) =>
           url ? (
             <a
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-block px-5 py-2 border border-accent text-accent rounded-full text-sm font-medium hover:bg-accent hover:text-bg transition-colors"
+              class="group inline-flex items-center gap-2.5 px-6 py-3 border border-white/10 rounded-xl text-sm font-medium text-text/80 hover:text-accent hover:border-accent/40 hover:bg-accent/5 transition-all duration-300"
             >
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path d={socialIcons[key] || ""} />
+              </svg>
               {socialLabels[key] || key}
             </a>
           ) : null
         )}
         {Object.values(band.socials).every((url) => !url) && (
-          <p class="text-muted text-sm italic">Social links coming soon — add URLs in src/data/band.ts</p>
+          <p class="text-muted text-sm italic">Social links coming soon</p>
         )}
       </div>
     </section>

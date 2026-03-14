@@ -3,15 +3,82 @@ import BaseLayout from "../layouts/BaseLayout.astro"
 import HeroSlider from "../components/HeroSlider.astro"
 import TrackList from "../components/TrackList.astro"
 import MailingListForm from "../components/MailingListForm.astro"
+import { releases } from "../data/releases"
+import makeResponsiveEmbed from "../utils/embed"
+
+const latestRelease = releases[0]
 ---
 
-  <BaseLayout title="Lishkee — Indie Alt-Pop from Brno">
+<BaseLayout title="Lishkee — Indie Alt-Pop from Brno">
   {/* 1. Hero Slideshow */}
   <HeroSlider />
 
-  {/* 2. Track List */}
+  {/* 2. Featured Release */}
+  {latestRelease && (
+    <section class="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      {/* Background glow */}
+      <div class="absolute inset-0 z-0">
+        <div class="absolute top-1/3 left-0 w-[500px] h-[500px] bg-pal-5/8 rounded-full blur-3xl" />
+        <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-pal-9/8 rounded-full blur-3xl" />
+      </div>
+
+      <div class="relative z-10 max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <span class="accent-line mb-4 block mx-auto" />
+          <h2 class="font-[Cormorant_Garamond] text-3xl sm:text-5xl font-semibold text-accent mb-3">
+            Latest Release
+          </h2>
+        </div>
+
+        <div class="glass-card p-6 sm:p-8">
+          <div class="flex flex-col md:flex-row gap-6 sm:gap-8 mb-8">
+            {/* Cover art */}
+            <div class="w-full md:w-56 shrink-0">
+              <div class="relative group overflow-hidden rounded-xl animate-pulse-glow">
+                <img
+                  src={latestRelease.coverArt}
+                  alt={`${latestRelease.title} cover art`}
+                  class="w-full aspect-square object-cover bg-white/5 transition-transform duration-500 group-hover:scale-105"
+                  onerror="this.style.display='none'"
+                />
+              </div>
+            </div>
+
+            {/* Release info */}
+            <div class="flex-1 flex flex-col justify-center">
+              <span class="text-accent/60 text-sm font-mono mb-2">{latestRelease.year}</span>
+              <h3 class="font-[Cormorant_Garamond] text-2xl sm:text-3xl font-semibold text-text mb-3 leading-tight">
+                {latestRelease.title}
+              </h3>
+              {latestRelease.description && (
+                <p class="text-text/70 text-base leading-relaxed mb-6">
+                  {latestRelease.description}
+                </p>
+              )}
+              <a href="/music" class="btn-gradient self-start text-sm">
+                Explore Album
+              </a>
+            </div>
+          </div>
+
+          {/* Album embed */}
+          {latestRelease.albumEmbedHtml && (
+            <div class="w-full flex justify-center">
+              <div class="w-full max-w-2xl rounded-lg overflow-hidden" set:html={makeResponsiveEmbed(latestRelease.albumEmbedHtml)} />
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <div class="section-divider max-w-xs mx-auto" />
+
+  {/* 3. Track List */}
   <TrackList />
 
-  {/* 3. Mailing List CTA */}
+  <div class="section-divider max-w-xs mx-auto" />
+
+  {/* 4. Mailing List CTA */}
   <MailingListForm />
 </BaseLayout>

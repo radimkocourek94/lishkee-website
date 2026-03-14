@@ -1,30 +1,53 @@
 ---
 import { band } from "../data/band"
+
+const currentPath = Astro.url.pathname
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/music", label: "Music" },
+  { href: "/about", label: "About" },
+]
 ---
 
-<nav class="sticky top-0 z-50 bg-bg/95 backdrop-blur-sm border-b border-white/5">
+<nav class="sticky top-0 z-50 bg-bg/80 backdrop-blur-md border-b border-white/5" id="main-nav">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       <!-- Logotype -->
-      <a href="/" class="font-[Cormorant_Garamond] text-2xl font-semibold tracking-wide text-accent hover:text-accent-hover transition-colors">
+      <a href="/" class="font-[Cormorant_Garamond] text-2xl font-semibold tracking-wide text-accent hover:text-accent-hover transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(253,164,9,0.4)]">
         {band.logotype}
       </a>
 
       <!-- Desktop nav links -->
-      <div class="hidden md:flex items-center space-x-8">
-        <a href="/" class="text-sm font-medium text-text hover:text-accent transition-colors">Home</a>
-        <a href="/music" class="text-sm font-medium text-text hover:text-accent transition-colors">Music</a>
-        <a href="/about" class="text-sm font-medium text-text hover:text-accent transition-colors">About</a>
+      <div class="hidden md:flex items-center space-x-1">
+        {navLinks.map((link) => {
+          const isActive = currentPath === link.href || (link.href !== "/" && currentPath.startsWith(link.href))
+          return (
+            <a
+              href={link.href}
+              class:list={[
+                "relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300",
+                isActive
+                  ? "text-accent bg-accent/10"
+                  : "text-text/70 hover:text-text hover:bg-white/5",
+              ]}
+            >
+              {link.label}
+              {isActive && (
+                <span class="absolute bottom-0 left-1/2 -translate-x-1/2 w-5 h-0.5 bg-accent rounded-full" />
+              )}
+            </a>
+          )
+        })}
       </div>
 
       <!-- Hamburger button (mobile) -->
       <button
         id="hamburger-btn"
-        class="md:hidden p-2 text-text hover:text-accent transition-colors"
+        class="md:hidden relative w-10 h-10 flex items-center justify-center text-text hover:text-accent transition-colors rounded-lg hover:bg-white/5"
         aria-label="Open menu"
         aria-expanded="false"
       >
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path id="hamburger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
@@ -32,29 +55,67 @@ import { band } from "../data/band"
   </div>
 
   <!-- Mobile drawer -->
-  <div id="mobile-menu" class="md:hidden hidden">
-    <div class="px-4 pt-2 pb-4 space-y-2 border-t border-white/5">
-      <a href="/" class="block py-2 text-sm font-medium text-text hover:text-accent transition-colors">Home</a>
-      <a href="/music" class="block py-2 text-sm font-medium text-text hover:text-accent transition-colors">Music</a>
-      <a href="/about" class="block py-2 text-sm font-medium text-text hover:text-accent transition-colors">About</a>
+  <div id="mobile-menu" class="md:hidden mobile-menu-enter">
+    <div class="px-4 pt-2 pb-4 space-y-1 border-t border-white/5">
+      {navLinks.map((link) => {
+        const isActive = currentPath === link.href || (link.href !== "/" && currentPath.startsWith(link.href))
+        return (
+          <a
+            href={link.href}
+            class:list={[
+              "block py-2.5 px-3 text-sm font-medium rounded-lg transition-all duration-200",
+              isActive
+                ? "text-accent bg-accent/10"
+                : "text-text/70 hover:text-text hover:bg-white/5",
+            ]}
+          >
+            {link.label}
+          </a>
+        )
+      })}
     </div>
   </div>
 </nav>
 
 <script>
-  const btn = document.getElementById("hamburger-btn")
-  const menu = document.getElementById("mobile-menu")
-  const icon = document.getElementById("hamburger-icon") as SVGPathElement | null
+  function initNav() {
+    const btn = document.getElementById("hamburger-btn")
+    const menu = document.getElementById("mobile-menu")
+    const icon = document.getElementById("hamburger-icon") as SVGPathElement | null
 
-  btn?.addEventListener("click", () => {
-    const isOpen = !menu?.classList.contains("hidden")
-    menu?.classList.toggle("hidden")
-    btn.setAttribute("aria-expanded", String(!isOpen))
+    // Close mobile menu on navigation
+    menu?.classList.remove("is-open")
     if (icon) {
-      icon.setAttribute(
-        "d",
-        isOpen ? "M4 6h16M4 12h16M4 18h16" : "M6 18L18 6M6 6l12 12"
-      )
+      icon.setAttribute("d", "M4 6h16M4 12h16M4 18h16")
     }
-  })
+    btn?.setAttribute("aria-expanded", "false")
+
+    btn?.addEventListener("click", () => {
+      const isOpen = menu?.classList.contains("is-open")
+      menu?.classList.toggle("is-open")
+      btn.setAttribute("aria-expanded", String(!isOpen))
+      if (icon) {
+        icon.setAttribute(
+          "d",
+          isOpen ? "M4 6h16M4 12h16M4 18h16" : "M6 18L18 6M6 6l12 12"
+        )
+      }
+    })
+
+    // Add nav background on scroll
+    const nav = document.getElementById("main-nav")
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        nav?.classList.add("bg-bg/95", "shadow-lg", "shadow-black/20")
+        nav?.classList.remove("bg-bg/80")
+      } else {
+        nav?.classList.remove("bg-bg/95", "shadow-lg", "shadow-black/20")
+        nav?.classList.add("bg-bg/80")
+      }
+    })
+  }
+
+  // Run on initial load and after each view transition navigation
+  initNav()
+  document.addEventListener("astro:after-swap", initNav)
 </script>

@@ -1,18 +1,25 @@
 ---
 /**
- * MailingListForm — mailing list signup CTA.
+ * MailingListForm — modern mailing list signup CTA.
  * Uses Netlify Forms attribute for post-deploy compatibility.
- * For local dev, the form submits without error.
  */
 ---
 
-<section class="py-16 px-4 sm:px-6 lg:px-8">
-  <div class="max-w-xl mx-auto text-center">
-    <h2 class="font-[Cormorant_Garamond] text-3xl sm:text-4xl font-semibold text-accent mb-4">
+<section class="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+  {/* Background decoration */}
+  <div class="absolute inset-0 z-0">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl" />
+  </div>
+
+  <div class="relative z-10 max-w-lg mx-auto text-center">
+    {/* Decorative line */}
+    <span class="accent-line mb-6 block mx-auto" />
+
+    <h2 class="font-[Cormorant_Garamond] text-3xl sm:text-5xl font-semibold text-accent mb-4">
       Stay in the Loop
     </h2>
-    <p class="text-text mb-8">
-      Join our mailing list for the latest news!
+    <p class="text-text/70 mb-8 text-base sm:text-lg">
+      Be the first to hear about new releases, shows, and behind-the-scenes updates.
     </p>
 
     <form
@@ -20,7 +27,7 @@
       method="POST"
       data-netlify="true"
       netlify-honeypot="bot-field"
-      class="flex flex-col sm:flex-row gap-3 justify-center"
+      class="space-y-4"
     >
       {/* Honeypot field for spam prevention */}
       <p class="hidden">
@@ -31,20 +38,26 @@
 
       <input type="hidden" name="form-name" value="mailing-list" />
 
-      <input
-        type="email"
-        name="email"
-        required
-        placeholder="your@email.com"
-        class="px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-text placeholder-muted focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors flex-1 max-w-sm"
-      />
+      <div class="flex flex-col sm:flex-row gap-3">
+        <input
+          type="email"
+          name="email"
+          required
+          placeholder="your@email.com"
+          class="flex-1 px-5 py-3.5 bg-white/5 border border-white/10 rounded-xl text-text placeholder-muted focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all duration-300 backdrop-blur-sm"
+        />
 
-      <button
-        type="submit"
-        class="px-6 py-3 bg-accent hover:bg-accent-hover text-bg font-semibold rounded-lg transition-colors cursor-pointer"
-      >
-        Sign Up
-      </button>
+        <button
+          type="submit"
+          class="btn-gradient cursor-pointer whitespace-nowrap"
+        >
+          Sign Up
+        </button>
+      </div>
+
+      <p class="text-muted text-xs">
+        No spam, ever. Unsubscribe anytime.
+      </p>
     </form>
   </div>
 </section>

@@ -8,46 +8,53 @@ export interface Track {
 
 export const tracks: Track[] = [
   {
+    id: 0,
+    title: "Nightmares",
+    duration: "",
+    embedHtml: `<iframe style="border: 0; width: 350px; height: 350px;" src="https://bandcamp.com/EmbeddedPlayer/track=389067325/size=large/bgcol=333333/linkcol=ffffff/minimal=true/transparent=true/" seamless><a href="https://lishkee.bandcamp.com/track/nightmares">Nightmares by Lishkee</a></iframe>`,
+    infoUrl: "https://lishkee.bandcamp.com/track/nightmares",
+  },
+  {
     id: 1,
     title: "Not Much Left to Be Worried About 2.0",
     duration: "3:05",
-    embedHtml: "", // paste Bandcamp iframe embed code here
+    embedHtml: "",
     infoUrl: "",
   },
   {
     id: 2,
     title: "Game of Darts 2.0",
     duration: "3:03",
-    embedHtml: "", // paste Bandcamp iframe embed code here
+    embedHtml: "",
   },
   {
     id: 3,
     title: "Free-Floating Birds",
     duration: "3:11",
-    embedHtml: "", // paste Bandcamp iframe embed code here
+    embedHtml: "",
   },
   {
     id: 4,
     title: "Distortions",
     duration: "4:41",
-    embedHtml: "", // paste Bandcamp iframe embed code here
+    embedHtml: "",
   },
   {
     id: 5,
     title: "Breaking the Illusion",
     duration: "3:09",
-    embedHtml: "", // paste Bandcamp iframe embed code here
+    embedHtml: "",
   },
   {
     id: 6,
     title: "In Case of Emergency",
     duration: "3:44",
-    embedHtml: "", // paste Bandcamp iframe embed code here
+    embedHtml: "",
   },
   {
     id: 7,
     title: "Late Night Dawnings",
     duration: "3:14",
-    embedHtml: "", // paste Bandcamp iframe embed code here
+    embedHtml: "",
   },
 ]

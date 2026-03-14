@@ -6,57 +6,77 @@ import makeResponsiveEmbed from "../utils/embed"
 ---
 
 <BaseLayout title="Music — Lishkee">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    {/* Page heading */}
-    <h1 class="font-[Cormorant_Garamond] text-4xl sm:text-5xl font-semibold text-accent mb-12 text-center">
-      Music
-    </h1>
+  {/* Page header */}
+  <div class="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-pal-9/10 rounded-full blur-3xl" />
+      <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-pal-5/10 rounded-full blur-3xl" />
+    </div>
+    <div class="relative z-10 text-center max-w-4xl mx-auto">
+      <span class="accent-line mb-4 block mx-auto" />
+      <h1 class="font-[Cormorant_Garamond] text-4xl sm:text-6xl font-bold text-accent mb-4">
+        Music
+      </h1>
+      <p class="text-text/60 text-lg max-w-md mx-auto">
+        Albums, singles, and everything in between
+      </p>
+    </div>
+  </div>
 
-    {/* Releases section */}
-    <section class="mb-16">
-      <h2 class="font-[Cormorant_Garamond] text-3xl font-semibold text-accent mb-8">Releases</h2>
+  <div class="section-divider max-w-xs mx-auto mb-16" />
 
-      {releases.map((release) => (
-        <div class="mb-12">
-          <div class="flex flex-col sm:flex-row gap-6 mb-6">
-            {/* Cover art */}
-            <div class="w-full sm:w-48 shrink-0">
+  {/* Releases section */}
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
+    <h2 class="font-[Cormorant_Garamond] text-3xl sm:text-4xl font-semibold text-accent mb-10 text-center">
+      Releases
+    </h2>
+
+    {releases.map((release) => (
+      <div class="glass-card p-6 sm:p-8 mb-10">
+        <div class="flex flex-col sm:flex-row gap-6 sm:gap-8 mb-8">
+          {/* Cover art */}
+          <div class="w-full sm:w-56 shrink-0">
+            <div class="relative group overflow-hidden rounded-xl">
               <img
                 src={release.coverArt}
                 alt={`${release.title} cover art`}
-                class="w-full aspect-square object-cover rounded-lg bg-white/5"
+                class="w-full aspect-square object-cover bg-white/5 transition-transform duration-500 group-hover:scale-105"
                 onerror="this.style.display='none'"
               />
-              {/* Fallback placeholder if image fails to load */}
-              <div class="w-full aspect-square bg-white/5 rounded-lg flex items-center justify-center hidden" id="cover-fallback">
-                <span class="text-muted text-xs italic">Cover art</span>
-              </div>
-            </div>
-
-            {/* Release info */}
-            <div class="flex-1">
-              <h3 class="text-xl font-semibold text-text mb-1">{release.title}</h3>
-              <p class="text-muted text-sm mb-3">{release.year}</p>
-              {release.description && (
-                <p class="text-text/80">{release.description}</p>
-              )}
+              {/* Hover overlay */}
+              <div class="absolute inset-0 bg-gradient-to-t from-bg/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
           </div>
 
-          {/* Full album Bandcamp embed */}
-          {release.albumEmbedHtml ? (
-            <div class="w-full flex justify-center">
-              <div class="w-full max-w-2xl" set:html={makeResponsiveEmbed(release.albumEmbedHtml)} />
-            </div>
-          ) : (
-            <div class="w-full h-[120px] bg-white/5 rounded-lg flex items-center justify-center">
-              <span class="text-muted text-sm italic">Album player coming soon — paste Bandcamp embed in releases.ts</span>
-            </div>
-          )}
+          {/* Release info */}
+          <div class="flex-1 flex flex-col justify-center">
+            <span class="text-accent/60 text-sm font-mono mb-2">{release.year}</span>
+            <h3 class="font-[Cormorant_Garamond] text-2xl sm:text-3xl font-semibold text-text mb-3 leading-tight">
+              {release.title}
+            </h3>
+            {release.description && (
+              <p class="text-text/70 text-base leading-relaxed">
+                {release.description}
+              </p>
+            )}
+          </div>
         </div>
-      ))}
-    </section>
-  </div>
+
+        {/* Full album Bandcamp embed */}
+        {release.albumEmbedHtml ? (
+          <div class="w-full flex justify-center">
+            <div class="w-full max-w-2xl rounded-lg overflow-hidden" set:html={makeResponsiveEmbed(release.albumEmbedHtml)} />
+          </div>
+        ) : (
+          <div class="w-full h-[120px] bg-white/5 rounded-xl flex items-center justify-center">
+            <span class="text-muted text-sm italic">Album player coming soon</span>
+          </div>
+        )}
+      </div>
+    ))}
+  </section>
+
+  <div class="section-divider max-w-xs mx-auto" />
 
   {/* Tracks section */}
   <TrackList />

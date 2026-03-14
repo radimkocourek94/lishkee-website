@@ -1,9 +1,21 @@
 export function makeResponsiveEmbed(embedHtml: string): string {
   if (!embedHtml) return ""
 
-  // Detect Bandcamp album vs track by presence of 'album=' or 'track=' in the iframe src
+  // Detect embed type:
+  // - Album embeds: contain 'album=' in the iframe src
+  // - Large track embeds: contain 'track=' AND 'size=large' (square artwork player)
+  // - Small track embeds: contain 'track=' without 'size=large' (minimal row player)
   const isAlbum = /album=/i.test(embedHtml)
-  const paddingClass = isAlbum ? "embed-responsive--album" : "embed-responsive--track"
+  const isLargeTrack = /track=/i.test(embedHtml) && /size=large/i.test(embedHtml)
+
+  let paddingClass: string
+  if (isAlbum) {
+    paddingClass = "embed-responsive--album"
+  } else if (isLargeTrack) {
+    paddingClass = "embed-responsive--large-track"
+  } else {
+    paddingClass = "embed-responsive--track"
+  }
 
   // Remove fixed width/height attributes and inline style attributes to avoid layout issues
   let sanitized = embedHtml

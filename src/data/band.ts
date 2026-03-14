@@ -8,10 +8,14 @@ export const band = {
   location: "Brno, Czechia",
   photoCredit: "Tom\u00E1\u0161 \u0160koda",
   socials: {
-    instagram: "", // fill in URL
-    facebook: "", // fill in URL
-    bandcamp: "", // fill in URL
-    spotify: "", // fill in URL
+    instagram: "https://instagram.com/lishkee.music",
+    youtube: "https://www.youtube.com/@lishkee.",
+    facebook: "https://www.facebook.com/lishkee",
+    spotify: "https://open.spotify.com/artist/4zzh4IMB53iM7clh96dPZH?autoplay=true",
+    soundcloud: "https://www.soundcloud.com/lishkee",
+    bandcamp: "https://lishkee.bandcamp.com",
+    threads: "https://www.threads.com/lishkee.music",
+    tiktok: "https://www.tiktok.com/@lishkee.music",
   },
   bio: `Lishkee is an indie alt-pop project based in Brno, Czechia, comprising Vikt\u00F3ria \u0160m\u00EDdov\u00E1 and Radim Kocourek. Their music blends elements of electronica, pop, downtempo, and jazz, characterized by dreamy, intimate melodies and layered instrumental textures. They produce their songs in their little humble studio, emphasizing a DIY approach.
 
