@@ -21,11 +21,12 @@ const heroImages = [
       <img
         src={src}
         alt={`Lishkee band photo ${i + 1}`}
-        class="w-full h-full object-cover"
+        class="w-full h-full object-cover object-[center_20%]"
         loading={i === 0 ? "eager" : "lazy"}
       />
       <!-- Dark overlay for readability -->
       <div class="absolute inset-0 bg-black/30" />
     </div>
   ))}
+  <!-- Hero slider only — embed moved to the Tracks section as 'Latest track' -->
 </section>

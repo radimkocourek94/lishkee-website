@@ -2,25 +2,25 @@
 import { band } from "../data/band"
 ---
 
-<nav class="sticky top-0 z-50 bg-[#0a0a0a]/95 backdrop-blur-sm border-b border-white/5">
+<nav class="sticky top-0 z-50 bg-bg/95 backdrop-blur-sm border-b border-white/5">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       <!-- Logotype -->
-      <a href="/" class="font-[Cormorant_Garamond] text-2xl font-semibold tracking-wide text-[#c9a84c] hover:text-[#d4b85e] transition-colors">
+      <a href="/" class="font-[Cormorant_Garamond] text-2xl font-semibold tracking-wide text-accent hover:text-accent-hover transition-colors">
         {band.logotype}
       </a>
 
       <!-- Desktop nav links -->
       <div class="hidden md:flex items-center space-x-8">
-        <a href="/" class="text-sm font-medium text-[#f0f0f0] hover:text-[#c9a84c] transition-colors">Home</a>
-        <a href="/music" class="text-sm font-medium text-[#f0f0f0] hover:text-[#c9a84c] transition-colors">Music</a>
-        <a href="/about" class="text-sm font-medium text-[#f0f0f0] hover:text-[#c9a84c] transition-colors">About</a>
+        <a href="/" class="text-sm font-medium text-text hover:text-accent transition-colors">Home</a>
+        <a href="/music" class="text-sm font-medium text-text hover:text-accent transition-colors">Music</a>
+        <a href="/about" class="text-sm font-medium text-text hover:text-accent transition-colors">About</a>
       </div>
 
       <!-- Hamburger button (mobile) -->
       <button
         id="hamburger-btn"
-        class="md:hidden p-2 text-[#f0f0f0] hover:text-[#c9a84c] transition-colors"
+        class="md:hidden p-2 text-text hover:text-accent transition-colors"
         aria-label="Open menu"
         aria-expanded="false"
       >
@@ -34,9 +34,9 @@ import { band } from "../data/band"
   <!-- Mobile drawer -->
   <div id="mobile-menu" class="md:hidden hidden">
     <div class="px-4 pt-2 pb-4 space-y-2 border-t border-white/5">
-      <a href="/" class="block py-2 text-sm font-medium text-[#f0f0f0] hover:text-[#c9a84c] transition-colors">Home</a>
-      <a href="/music" class="block py-2 text-sm font-medium text-[#f0f0f0] hover:text-[#c9a84c] transition-colors">Music</a>
-      <a href="/about" class="block py-2 text-sm font-medium text-[#f0f0f0] hover:text-[#c9a84c] transition-colors">About</a>
+      <a href="/" class="block py-2 text-sm font-medium text-text hover:text-accent transition-colors">Home</a>
+      <a href="/music" class="block py-2 text-sm font-medium text-text hover:text-accent transition-colors">Music</a>
+      <a href="/about" class="block py-2 text-sm font-medium text-text hover:text-accent transition-colors">About</a>
     </div>
   </div>
 </nav>

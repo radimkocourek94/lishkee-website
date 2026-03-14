@@ -3,33 +3,16 @@ import { tracks } from "../data/tracks"
 ---
 
 <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-  <h2 class="font-[Cormorant_Garamond] text-3xl sm:text-4xl font-semibold text-[#c9a84c] mb-8 text-center">Tracks</h2>
+  <h2 class="font-[Cormorant_Garamond] text-3xl sm:text-4xl font-semibold text-accent mb-8 text-center">Latest track</h2>
 
-  <div class="space-y-6">
-    {tracks.map((track) => (
-      <div class="border-b border-white/10 pb-6 last:border-b-0">
-        {/* Track info row */}
-        <div class="flex items-baseline gap-4 mb-2">
-          <span class="text-[#888888] text-sm font-mono w-6 text-right shrink-0">
-            {String(track.id).padStart(2, "0")}
-          </span>
-          <span class="text-[#f0f0f0] font-medium flex-1">
-            {track.title}
-          </span>
-          <span class="text-[#888888] text-sm font-mono shrink-0">
-            {track.duration}
-          </span>
-        </div>
-
-        {/* Bandcamp embed or placeholder */}
-        {track.embedHtml ? (
-          <div class="mt-2 w-full" set:html={track.embedHtml} />
-        ) : (
-          <div class="mt-2 w-full h-[42px] bg-white/5 rounded flex items-center justify-center">
-            <span class="text-[#888888] text-xs italic">Streaming link coming soon</span>
-          </div>
-        )}
-      </div>
-    ))}
+  <div class="mx-auto max-w-[350px]">
+    <div class="shadow-xl rounded-md overflow-hidden bg-white/80 backdrop-blur-sm">
+      <iframe
+        title="Nightmares — Lishkee (Bandcamp)"
+        src="https://bandcamp.com/EmbeddedPlayer/track=389067325/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/"
+        style="border:0; width:100%; height:442px;"
+        seamless
+      ></iframe>
+    </div>
   </div>
 </section>

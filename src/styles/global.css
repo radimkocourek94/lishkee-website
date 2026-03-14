@@ -1,11 +1,46 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #0a0a0a;
-  --color-text: #f0f0f0;
-  --color-accent: #c9a84c;
-  --color-accent-hover: #d4b85e;
-  --color-muted: #888888;
+  /* ── Full 29-color palette ── */
+  --color-pal-1: #04070c;
+  --color-pal-2: #01215b;
+  --color-pal-3: #0150b4;
+  --color-pal-4: #420216;
+  --color-pal-5: #621557;
+  --color-pal-6: #7e0120;
+  --color-pal-7: #a478c7;
+  --color-pal-8: #0da4cf;
+  --color-pal-9: #6a59b5;
+  --color-pal-10: #c0c5fd;
+  --color-pal-11: #fd001d;
+  --color-pal-12: #2d3e79;
+  --color-pal-13: #7fc6de;
+  --color-pal-14: #ab0154;
+  --color-pal-15: #43cbe5;
+  --color-pal-16: #c1011b;
+  --color-pal-17: #a74c97;
+  --color-pal-18: #808c9b;
+  --color-pal-19: #e803b5;
+  --color-pal-20: #3a7bd5;
+  --color-pal-21: #d7472c;
+  --color-pal-22: #e894df;
+  --color-pal-23: #fb58aa;
+  --color-pal-24: #02dbef;
+  --color-pal-25: #ee016f;
+  --color-pal-26: #fda409;
+  --color-pal-27: #f85668;
+  --color-pal-28: #881a89;
+  --color-pal-29: #fed2b5;
+
+  /* ── Semantic aliases ── */
+  --color-bg: #04070c;
+  --color-text: #c0c5fd;
+  --color-accent: #fda409;
+  --color-accent-hover: #fed2b5;
+  --color-muted: #808c9b;
+  --color-selection: #3a7bd5;
+
+  /* ── Fonts ── */
   --font-body: "Inter", sans-serif;
   --font-display: "Cormorant Garamond", serif;
 }
@@ -35,12 +70,15 @@
   }
 
   ::selection {
-    background-color: var(--color-accent);
-    color: var(--color-bg);
+    background-color: var(--color-selection);
+    color: var(--color-text);
   }
 }
 
 /* Hero slideshow animations */
+/* Keep the existing fade timing pattern but slow the whole cycle down
+   so slides change less frequently. For three slides we use a 24s loop
+   with 8s offsets between slides. */
 @keyframes fadeSlide {
   0%, 30% { opacity: 1; }
   33.33%, 97% { opacity: 0; }
@@ -48,9 +86,9 @@
 }
 
 .hero-slide {
-  animation: fadeSlide 12s infinite;
+  animation: fadeSlide 24s infinite;
 }
 
 .hero-slide:nth-child(1) { animation-delay: 0s; }
-.hero-slide:nth-child(2) { animation-delay: 4s; }
-.hero-slide:nth-child(3) { animation-delay: 8s; }
+.hero-slide:nth-child(2) { animation-delay: 8s; }
+.hero-slide:nth-child(3) { animation-delay: 16s; }

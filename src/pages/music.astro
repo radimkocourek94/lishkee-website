@@ -7,13 +7,13 @@ import { releases } from "../data/releases"
 <BaseLayout title="Music — Lishkee">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     {/* Page heading */}
-    <h1 class="font-[Cormorant_Garamond] text-4xl sm:text-5xl font-semibold text-[#c9a84c] mb-12 text-center">
+    <h1 class="font-[Cormorant_Garamond] text-4xl sm:text-5xl font-semibold text-accent mb-12 text-center">
       Music
     </h1>
 
     {/* Releases section */}
     <section class="mb-16">
-      <h2 class="font-[Cormorant_Garamond] text-3xl font-semibold text-[#c9a84c] mb-8">Releases</h2>
+      <h2 class="font-[Cormorant_Garamond] text-3xl font-semibold text-accent mb-8">Releases</h2>
 
       {releases.map((release) => (
         <div class="mb-12">
@@ -28,16 +28,16 @@ import { releases } from "../data/releases"
               />
               {/* Fallback placeholder if image fails to load */}
               <div class="w-full aspect-square bg-white/5 rounded-lg flex items-center justify-center hidden" id="cover-fallback">
-                <span class="text-[#888888] text-xs italic">Cover art</span>
+                <span class="text-muted text-xs italic">Cover art</span>
               </div>
             </div>
 
             {/* Release info */}
             <div class="flex-1">
-              <h3 class="text-xl font-semibold text-[#f0f0f0] mb-1">{release.title}</h3>
-              <p class="text-[#888888] text-sm mb-3">{release.year}</p>
+              <h3 class="text-xl font-semibold text-text mb-1">{release.title}</h3>
+              <p class="text-muted text-sm mb-3">{release.year}</p>
               {release.description && (
-                <p class="text-[#f0f0f0]/80">{release.description}</p>
+                <p class="text-text/80">{release.description}</p>
               )}
             </div>
           </div>
@@ -47,7 +47,7 @@ import { releases } from "../data/releases"
             <div class="w-full" set:html={release.albumEmbedHtml} />
           ) : (
             <div class="w-full h-[120px] bg-white/5 rounded-lg flex items-center justify-center">
-              <span class="text-[#888888] text-sm italic">Album player coming soon — paste Bandcamp embed in releases.ts</span>
+              <span class="text-muted text-sm italic">Album player coming soon — paste Bandcamp embed in releases.ts</span>
             </div>
           )}
         </div>
