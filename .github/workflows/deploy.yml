@@ -32,6 +32,12 @@ jobs:
 
       - name: Build with Astro
         uses: withastro/action@v3
+        with:
+          # Ensure the action runs with a Node version supported by Astro
+          # Astro requires Node >=22.12.0 (package.json). The action defaults to
+          # Node 20 which caused the CI error. Set node-version to 22 to match
+          # the project's engines and the earlier setup-node step.
+          node-version: 22
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
