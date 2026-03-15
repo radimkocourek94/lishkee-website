@@ -40,10 +40,25 @@ function renderBio(bio: string, socialsLabel: string): string {
     /<em>Collections of Pink, Blue, and All the Other Colors, Too<\/em>/g,
     '<a href="https://lishkee.bandcamp.com/album/collections-of-pink-blue-all-the-other-colors-too" target="_blank" rel="noopener noreferrer" aria-label="Collections of Pink, Blue, and All the Other Colors, Too" class="text-accent hover:text-accent-hover underline underline-offset-2 transition-colors">𝓒𝓸𝓵𝓵𝓮𝓬𝓽𝓲𝓸𝓷𝓼 𝓸𝓯 𝓟𝓲𝓷𝓴, 𝓑𝓵𝓾𝓮, 𝓪𝓷𝓭 𝓐𝓵𝓵 𝓽𝓱𝓮 𝓞𝓽𝓱𝓮𝓻 𝓒𝓸𝓵𝓸𝓻𝓼, 𝓣𝓸𝓸</a>'
   )
+
+  const linkUrl = "https://linktr.ee/lishkee"
+  const linkText = "linktr.ee/lishkee"
+
+  // Convert explicit URL occurrences in the bio to a proper anchor
+  html = html.replace(/linktr\.ee\/lishkee/g, `<a href="${linkUrl}" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent-hover underline underline-offset-2 transition-colors">${linkText}</a>`)
+
+  // Replace the localized socials label with the Linktree URL (handles grammatical variants)
+  const escapedSocials = socialsLabel.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
+  const socialsRegex = new RegExp(escapedSocials, "g")
   html = html.replace(
-    new RegExp(socialsLabel.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "g"),
-    `<a href="https://linktr.ee/lishkee" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent-hover underline underline-offset-2 transition-colors">${socialsLabel}</a>`
+    socialsRegex,
+    `<a href="${linkUrl}" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent-hover underline underline-offset-2 transition-colors">${socialsLabel}</a>`
   )
+
+  // If neither the explicit URL nor the socials label was present, append a fallback link
+  if (!html.includes(linkText)) {
+    html += `\n\n<a href="${linkUrl}" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent-hover underline underline-offset-2 transition-colors">${linkText}</a>`
+  }
 
   html = html
     .split("\n\n")

@@ -59,7 +59,7 @@ export const cs: Translations = {
   "about.bookingPress": "Booking / press:",
   "about.moreLinks": "Dal\u0161\u00ED odkazy:",
   "about.followUs": "Sledujte n\u00E1s",
-  "about.theirSocials": "soci\u00E1ln\u00ED s\u00EDt\u011B",
+  "about.theirSocials": "soci\u00E1ln\u00EDch s\u00EDt\u00EDch",
 
   // --- About page: band bio ---
   "about.bio": `Lishkee je indie alt-pop projekt z Brna, který tvoří Viktória Šmídová a Radim Kocourek. V jejich hudbě se mísí prvky electroniky, popu, downtempa a jazzu a vyznačuje se snivou atmosférou, intimními melodiemi a vrstvenými instrumentálními texturami. Svou tvorbu produkují ve svém malém domácím studiu s důrazem na DIY.
@@ -68,9 +68,9 @@ Pod svým dřívějším názvem Stereofox vydali v roce 2017 demo album *Layers
 
 V roce 2024 se podíleli na site-specific performance s názvem *Labyrint*, pro kterou připravili na míru šitý soundtrack.
 
-V dubnu 2025 Lishkee vydali kompilační album *Collections of Pink, Blue, and All the Other Colors, Too*. Zvuk alba lze nejlépe popsat jako kombinaci dream popu a temné electroniky.
+  V dubnu 2025 Lishkee vydali kompilační album *Collections of Pink, Blue, and All the Other Colors, Too*. Zvuk alba lze nejlépe popsat jako kombinaci dream popu a temné electroniky.
 
-Sledujte je na sociální sítě pro novinky a další zábavný obsah!`,
+  Sledujte je na sociálních sítích!`,
 
   // --- Footer ---
   "footer.navigate": "Navigace",
