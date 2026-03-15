@@ -39,11 +39,6 @@ jobs:
           # the project's engines and the earlier setup-node step.
           node-version: 22
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./dist
-
   deploy:
     environment:
       name: github-pages
