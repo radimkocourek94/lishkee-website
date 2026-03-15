@@ -304,8 +304,8 @@
 
 /* Responsive embed wrappers */
 .embed-responsive { position: relative; width: 100%; }
-/* Album embeds (Bandcamp default fixed size ~700x472) */
-.embed-responsive--album { padding-top: 67.4286%; }
+/* Album embeds — make album artwork square to match large track artwork */
+.embed-responsive--album { padding-top: 100%; }
 /* Large track embeds (Bandcamp square artwork player, e.g. 350x350) */
 .embed-responsive--large-track { padding-top: 100%; }
 /* Track embeds (small height rows like Bandcamp track player) */
