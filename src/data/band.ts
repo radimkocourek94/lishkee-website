@@ -2,8 +2,16 @@ export const band = {
   name: "Lishkee",
   logotype: "⋆₊⊹Lishkee⊹₊⋆",
   members: [
-    { name: "Vikt\u00F3ria \u0160m\u00EDdov\u00E1" },
-    { name: "Radim Kocourek" },
+    {
+      name: "Vikt\u00F3ria \u0160m\u00EDdov\u00E1",
+      role: "Vocals, Production, Instrumentation, Songwriting",
+      cs_role: "Zp\u011Bv, produkce, instrumentace, skladba p\u00EDsn\u00ED",
+    },
+    {
+      name: "Radim Kocourek",
+      role: "Production, Instrumentation, Songwriting",
+      cs_role: "Produkce, instrumentace, skladba p\u00EDsn\u00ED",
+    },
   ],
   location: "Brno, Czechia",
   photoCredit: "Tom\u00E1\u0161 \u0160koda",

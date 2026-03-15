@@ -105,11 +105,15 @@ const bioHtml = renderBio(t("about.bio"), t("about.theirSocials"))
         {band.members.map((member) => (
           <div class="glass-card p-6 text-center">
             <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-accent/10 flex items-center justify-center">
-              <span class="text-2xl font-bold text-accent">
-                {member.name.charAt(0)}
-              </span>
+              <span class="text-2xl font-bold text-accent">{member.name.charAt(0)}</span>
             </div>
             <h3 class="text-lg font-semibold text-text">{member.name}</h3>
+            {member.role ? (
+              <p class="text-sm text-text/80 mt-2"><strong>{member.role}</strong></p>
+            ) : null}
+            {member.description ? (
+              <p class="text-sm text-text/70 mt-2">{member.description}</p>
+            ) : null}
           </div>
         ))}
       </div>
