@@ -53,7 +53,7 @@ export const en: Translations = {
   // --- About page ---
   "about.heading": "About Lishkee",
   "about.heroAlt": "Lishkee band photo by Tomas Skoda",
-  "about.theDuo": "The Duo",
+  "about.theDuo": "Members",
   "about.basedIn": "Based in",
   "about.contactBooking": "Contact & booking",
   "about.bookingPress": "Booking / press:",

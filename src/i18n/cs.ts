@@ -54,7 +54,7 @@ export const cs: Translations = {
   "about.heading": "O Lishkee",
   "about.heroAlt": "Foto kapely Lishkee od Tom\u00E1\u0161e \u0160kody",
   "about.theDuo": "Členové",
-  "about.basedIn": "P\u016Fsob\u00ED v",
+  "about.basedIn": "P\u016Fsob\u00ED hlavn\u011B v Brn\u011B",
   "about.contactBooking": "Kontakt a booking",
   "about.bookingPress": "Booking / press:",
   "about.moreLinks": "Dal\u0161\u00ED odkazy:",
