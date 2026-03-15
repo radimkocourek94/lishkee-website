@@ -56,7 +56,7 @@ export const en: Translations = {
   "about.theDuo": "Members",
   "about.basedIn": "Based in",
   "about.contactBooking": "Contact & booking",
-  "about.bookingPress": "Booking / press:",
+  "about.bookingPress": "Booking/press:",
   "about.moreLinks": "More links:",
   "about.followUs": "Follow Us",
   "about.theirSocials": "their socials",

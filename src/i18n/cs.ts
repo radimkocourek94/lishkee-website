@@ -56,7 +56,7 @@ export const cs: Translations = {
   "about.theDuo": "Členové",
   "about.basedIn": "P\u016Fsob\u00ED hlavn\u011B v Brn\u011B",
   "about.contactBooking": "Kontakt a booking",
-  "about.bookingPress": "Booking / press:",
+  "about.bookingPress": "Booking/press:",
   "about.moreLinks": "Dal\u0161\u00ED odkazy:",
   "about.followUs": "Sledujte n\u00E1s",
   "about.theirSocials": "soci\u00E1ln\u00EDch s\u00EDt\u00EDch",
