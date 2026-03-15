@@ -18,6 +18,13 @@ const navLinks = [
   { href: localePath("/about", locale), label: t("nav.about") },
 ]
 
+// Normalise paths for robust active-link detection (handles trailing slashes
+// and optional base prefixes). We keep this simple and only strip a single
+// trailing slash — that avoids changing the root "/" value.
+const normalizePath = (p: string) => (p ?? "").replace(/\/$/, "") || "/"
+const normalizedCurrent = normalizePath(currentPath)
+const normalizedHome = normalizePath(localePath("/", locale))
+
 const alternate = getAlternateLocalePath(currentPath)
 const switchLabel = alternate.locale === "cs" ? "CS" : "EN"
 ---
@@ -33,7 +40,10 @@ const switchLabel = alternate.locale === "cs" ? "CS" : "EN"
       <!-- Desktop nav links + lang switcher -->
       <div class="hidden md:flex items-center space-x-1">
         {navLinks.map((link) => {
-          const isActive = currentPath === link.href || (link.href !== localePath("/", locale) && currentPath.startsWith(link.href))
+          const normalizedLink = normalizePath(link.href)
+          const isActive =
+            normalizedCurrent === normalizedLink ||
+            (normalizedLink !== normalizedHome && normalizedCurrent.startsWith(normalizedLink))
           return (
             <a
               href={link.href}
@@ -78,7 +88,10 @@ const switchLabel = alternate.locale === "cs" ? "CS" : "EN"
   <div id="mobile-menu" class="md:hidden mobile-menu-enter">
     <div class="px-4 pt-2 pb-4 space-y-1 border-t border-white/5">
       {navLinks.map((link) => {
-        const isActive = currentPath === link.href || (link.href !== localePath("/", locale) && currentPath.startsWith(link.href))
+        const normalizedLink = normalizePath(link.href)
+        const isActive =
+          normalizedCurrent === normalizedLink ||
+          (normalizedLink !== normalizedHome && normalizedCurrent.startsWith(normalizedLink))
         return (
           <a
             href={link.href}
