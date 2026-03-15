@@ -1,0 +1,16 @@
+{
+  "name": "Lishkee",
+  "short_name": "Lishkee",
+  "description": "Lishkee — indie alt-pop from Brno, Czechia",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#04070c",
+  "theme_color": "#04070c",
+  "icons": [
+    {
+      "src": "/icons/foxy-icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

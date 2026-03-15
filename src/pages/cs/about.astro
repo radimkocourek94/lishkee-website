@@ -1,13 +1,13 @@
 ---
 import { Image } from "astro:assets"
-import BaseLayout from "../layouts/BaseLayout.astro"
-import { band } from "../data/band"
-import { socialLabels, socialIcons } from "../data/socials"
-import { useTranslations } from "../i18n"
+import BaseLayout from "../../layouts/BaseLayout.astro"
+import { band } from "../../data/band"
+import { socialLabels, socialIcons } from "../../data/socials"
+import { useTranslations } from "../../i18n"
 
-import heroBg from "../assets/images/lishkee4-tomas-skoda.jpg"
+import heroBg from "../../assets/images/lishkee4-tomas-skoda.jpg"
 
-const locale = "en" as const
+const locale = "cs" as const
 const t = useTranslations(locale)
 
 /**

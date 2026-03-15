@@ -4,26 +4,37 @@ import Nav from "../components/Nav.astro"
 import Footer from "../components/Footer.astro"
 import "../styles/global.css"
 import { band } from "../data/band"
+import { useTranslations, getLocaleFromUrl, getAlternateLocalePath } from "../i18n"
+import type { Locale } from "../i18n"
 
 interface Props {
   title: string
   description?: string
   image?: string
-  url?: string
+  lang?: Locale
 }
+
+const locale = Astro.props.lang ?? getLocaleFromUrl(Astro.url.pathname)
+const t = useTranslations(locale)
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, "")
 
 const {
   title,
-  description = "Lishkee — indie alt-pop from Brno, Czechia. Dream pop and dark electronica.",
-  image = "/images/collections-cover.jpg",
-  url = Astro.site || "https://example.com",
+  description = t("meta.defaultDescription"),
+  image = "/images/og-default.jpg",
 } = Astro.props
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).toString()
+const ogImageUrl = new URL(`${basePath}${image}`, Astro.site).toString()
+
+const alternate = getAlternateLocalePath(Astro.url.pathname)
+const alternateUrl = new URL(alternate.path, Astro.site).toString()
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "MusicGroup",
   name: band.name,
-  url,
+  url: Astro.site?.toString(),
   genre: ["Indie Pop", "Alt-Pop", "Dream Pop", "Electronica"],
   sameAs: Object.values(band.socials).filter(Boolean),
   member: band.members.map((m) => ({ "@type": "Person", name: m.name })),
@@ -31,35 +42,44 @@ const jsonLd = {
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#04070c" />
     <title>{title}</title>
-    <link rel="icon" type="image/png" href="/icons/foxy-icon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Gajraj+One&family=Archivo+Narrow:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang={alternate.locale} href={alternateUrl} />
+    <link rel="alternate" hreflang={locale} href={canonicalUrl} />
+    <link rel="icon" type="image/png" href={`${basePath}/icons/foxy-icon.png`} />
+    <link rel="apple-touch-icon" href={`${basePath}/icons/foxy-icon.png`} />
+    <link rel="manifest" href={`${basePath}/site.webmanifest`} />
+
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content={image} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content={locale === "cs" ? "cs_CZ" : "en_US"} />
+
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
     <ClientRouter />
   </head>
   <body class="min-h-screen flex flex-col">
-    <Nav transition:animate="none" />
-    <main class="flex-1" transition:animate="fade">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-accent focus:text-bg focus:rounded-lg focus:text-sm focus:font-semibold">
+      {t("nav.skipToContent")}
+    </a>
+    <Nav lang={locale} transition:animate="none" />
+    <main id="main-content" class="flex-1" transition:animate="fade">
       <slot />
     </main>
-    <Footer transition:animate="none" />
+    <Footer lang={locale} transition:animate="none" />
   </body>
 </html>

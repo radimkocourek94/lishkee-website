@@ -1,29 +1,17 @@
 ---
 import { band } from "../data/band"
+import { socialLabels, socialIcons } from "../data/socials"
+import { useTranslations, localePath } from "../i18n"
+import type { Locale } from "../i18n"
 
+interface Props {
+  lang?: Locale
+  [key: string]: unknown
+}
+
+const locale = Astro.props.lang ?? "en"
+const t = useTranslations(locale)
 const year = new Date().getFullYear()
-const socialLabels: Record<string, string> = {
-  instagram: "Instagram",
-  youtube: "YouTube",
-  facebook: "Facebook",
-  spotify: "Spotify",
-  soundcloud: "SoundCloud",
-  bandcamp: "Bandcamp",
-  threads: "Threads",
-  tiktok: "TikTok",
-}
-
-// simple inline SVGs for social icons (use currentColor so Tailwind text color applies)
-const socialIcons: Record<string, string> = {
-  instagram: `<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>`,
-  youtube: `<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M23 7s-.2-1.7-.8-2.4c-.8-.9-1.8-1-2.3-1.1C16.7 3 12 3 12 3s-4.7 0-7.9.5c-.5.1-1.5.2-2.3 1.1C1.2 5.3 1 7 1 7S1 8.9 1.1 10.8c.1 1.9.6 3.8.6 3.8s.2 1.7.8 2.4c.8.9 1.8 1 2.3 1.1 2.9.3 12.1.4 12.1.4s4.7 0 7.9-.5c.5-.1 1.5-.2 2.3-1.1.6-.7.8-2.4.8-2.4s.1-1.9.1-3.8c0-1.9-.1-3.8-.1-3.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>`,
-  facebook: `<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M22 12c0-5.5-4.5-10-10-10S2 6.5 2 12c0 4.8 3.4 8.8 8 9.8v-6.9H7.9V12h2.1V9.8c0-2.1 1.2-3.3 3-3.3.9 0 1.8.1 1.8.1v2h-1c-1 0-1.3.6-1.3 1.2V12h2.3l-.4 2.9h-1.9V21.8c4.6-1 8-5 8-9.8z"/></svg>`,
-  spotify: `<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm4.6 14.4c-.2.4-.6.6-1 .4-2.7-1.6-6.1-1.9-10.1-1-.4.1-.8-.1-.9-.5-.1-.4.1-.8.5-.9 4.7-1.1 8.8-.8 12 1.3.4.2.5.7.5 1zM17 11.3c-.3.5-.9.7-1.4.5-3.1-1.8-7.9-2.3-11.6-1.2-.5.1-1-.2-1.1-.7-.1-.5.2-1 .7-1.1 4.6-1.2 9.8-.6 13.2 1.4.5.3.7.9.2 1.1z"/></svg>`,
-  soundcloud: `<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 12h.5v6H3zM4.7 10.9h.5v7.1h-.5zM6.3 10h.5v8.1h-.5zM8 8.9h.6v9.2H8zM15.4 7.6a4.4 4.4 0 00-4.3 3.4h-.8V7.5H9V17h10.4a3.6 3.6 0 000-7.2 4.3 4.3 0 00-4.3-2.2z"/></svg>`,
-  bandcamp: `<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 12v6h18v-6H3zm3 2h6v2H6v-2zm0-4h12v2H6V10z"/></svg>`,
-  threads: `<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2c-1.7 0-3.4.7-4.5 1.9l-1 1 1 1c.8.8 1.5 1.6 1.9 2.6.4 1 .6 2.1.6 3.2 0 1.8-.5 3.6-1.4 5.1L6 18v2h12v-4c0-3.9-3.1-7-7-7V2z"/></svg>`,
-  tiktok: `<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9 3v8.1A4.9 4.9 0 0014 16a4.9 4.9 0 004.9-4.9V9h2v-.1A6.9 6.9 0 0115.9 13 7 7 0 119 6.2V3z"/></svg>`,
-}
 ---
 
 <footer class="relative border-t border-white/5 mt-0">
@@ -35,7 +23,7 @@ const socialIcons: Record<string, string> = {
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12 items-start">
       {/* Brand */}
       <div class="sm:justify-self-start text-center sm:text-left">
-        <a href="/" class="font-gajraj text-2xl font-semibold text-accent hover:text-accent-hover transition-colors">
+        <a href={localePath("/", locale)} class="font-gajraj text-2xl font-semibold text-accent hover:text-accent-hover transition-colors">
           {band.logotype}
         </a>
         <p class="text-muted text-sm mt-2">{band.location}</p>
@@ -43,17 +31,17 @@ const socialIcons: Record<string, string> = {
 
       {/* Quick links */}
       <div class="sm:justify-self-center text-center">
-        <h3 class="text-sm font-semibold text-text uppercase tracking-wider mb-3">Navigate</h3>
+        <h3 class="text-sm font-semibold text-text uppercase tracking-wider mb-3">{t("footer.navigate")}</h3>
           <div class="flex flex-wrap items-center justify-center gap-4">
-            <a href="/" class="text-sm text-muted hover:text-accent transition-colors">Home</a>
-            <a href="/music" class="text-sm text-muted hover:text-accent transition-colors">Music</a>
-            <a href="/about" class="text-sm text-muted hover:text-accent transition-colors">About</a>
+            <a href={localePath("/", locale)} class="text-sm text-muted hover:text-accent transition-colors">{t("nav.home")}</a>
+            <a href={localePath("/music", locale)} class="text-sm text-muted hover:text-accent transition-colors">{t("nav.music")}</a>
+            <a href={localePath("/about", locale)} class="text-sm text-muted hover:text-accent transition-colors">{t("nav.about")}</a>
           </div>
       </div>
 
       {/* Social links */}
       <div class="sm:justify-self-end text-center sm:text-right">
-        <h3 class="text-sm font-semibold text-text uppercase tracking-wider mb-3">Connect</h3>
+        <h3 class="text-sm font-semibold text-text uppercase tracking-wider mb-3">{t("footer.connect")}</h3>
         <div class="flex flex-wrap items-center justify-center sm:justify-end gap-3">
           {Object.entries(band.socials).map(([key, url]) =>
             url ? (
@@ -65,12 +53,11 @@ const socialIcons: Record<string, string> = {
                 aria-label={socialLabels[key] || key}
               >
                 <span class="sr-only">{socialLabels[key] || key}</span>
-                <span aria-hidden="true" set:html={socialIcons[key] || ""} />
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d={socialIcons[key] || ""} />
+                </svg>
               </a>
             ) : null
-          )}
-          {Object.values(band.socials).every((url) => !url) && (
-            <p class="text-muted text-sm italic">Coming soon</p>
           )}
         </div>
       </div>
@@ -78,8 +65,8 @@ const socialIcons: Record<string, string> = {
 
     {/* Bottom bar */}
     <div class="mt-10 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted">
-      <p>&copy; {year} {band.name}. All rights reserved.</p>
-      <p>Photos by {band.photoCredit}</p>
+      <p>&copy; {year} {band.name}. {t("footer.allRightsReserved")}</p>
+      <p>{t("footer.photosBy")} {band.photoCredit}</p>
     </div>
   </div>
 </footer>

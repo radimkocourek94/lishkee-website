@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lishkee.com/sitemap-index.xml

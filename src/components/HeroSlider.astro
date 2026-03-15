@@ -3,29 +3,47 @@
  * HeroSlider — full-width hero with CSS fade transitions,
  * band name overlay, and scroll-down indicator.
  */
+import { Image } from "astro:assets"
 import { band } from "../data/band"
+import { useTranslations, localePath } from "../i18n"
+import type { Locale } from "../i18n"
+
+interface Props {
+  lang?: Locale
+}
+
+const locale = Astro.props.lang ?? "en"
+const t = useTranslations(locale)
+
+import hero1 from "../assets/images/lishkee1-tomas-skoda.jpg"
+import hero2 from "../assets/images/lishkee2-tomas-skoda.jpg"
+import hero3 from "../assets/images/lishkee3-tomas-skoda.jpg"
 
 const heroImages = [
-  "/images/Lishkee1_Tomáš_Škoda.jpg",
-  "/images/Lishkee2_Tomáš_Škoda.jpg",
-  "/images/Lishkee3_Tomáš_Škoda..jpg",
+  { src: hero1, alt: t("hero.img1Alt") },
+  { src: hero2, alt: t("hero.img2Alt") },
+  { src: hero3, alt: t("hero.img3Alt") },
 ]
 ---
 
-<section class="relative w-full h-screen overflow-hidden noise-overlay">
+<section class="relative w-full h-dvh overflow-hidden noise-overlay">
   {/* Slideshow images */}
-  {heroImages.map((src, i) => (
+  {heroImages.map((img, i) => (
     <div
       class:list={[
         "hero-slide absolute inset-0 w-full h-full",
         i === 0 ? "z-10" : "z-0",
       ]}
     >
-      <img
-        src={src}
-        alt={`Lishkee band photo ${i + 1}`}
+      <Image
+        src={img.src}
+        alt={img.alt}
+        widths={[640, 1024, 1440, 1920]}
+        sizes="100vw"
         class="w-full h-full object-cover object-[center_20%]"
         loading={i === 0 ? "eager" : "lazy"}
+        format="webp"
+        quality={80}
       />
     </div>
   ))}
@@ -41,21 +59,21 @@ const heroImages = [
 
     {/* Band name */}
     <h1 aria-label="Lishkee" class="font-gajraj text-5xl sm:text-7xl md:text-8xl font-bold text-accent tracking-wider animate-fade-in-up drop-shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
-      ⋆₊⊹Lishkee⊹₊⋆
+      {band.logotype}
     </h1>
 
     {/* Tagline */}
     <p class="mt-4 text-lg sm:text-xl text-white/80 font-light tracking-widest uppercase animate-fade-in-up delay-200">
-      Indie Alt-Pop from Brno
+      {t("hero.tagline")}
     </p>
 
     {/* CTA buttons */}
     <div class="mt-8 flex flex-wrap gap-4 justify-center animate-fade-in-up delay-400">
-      <a href="/music" class="btn-gradient text-sm sm:text-base">
-        Listen Now
+      <a href={localePath("/music", locale)} class="btn-gradient text-sm sm:text-base">
+        {t("hero.listenNow")}
       </a>
-      <a href="/about" class="px-6 py-3 border border-white/30 text-white rounded-xl text-sm sm:text-base font-medium hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm">
-        Learn More
+      <a href={localePath("/about", locale)} class="px-6 py-3 border border-white/30 text-white rounded-xl text-sm sm:text-base font-medium hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm">
+        {t("hero.learnMore")}
       </a>
     </div>
   </div>
@@ -63,8 +81,8 @@ const heroImages = [
   {/* Scroll indicator */}
   <div class="absolute bottom-20 left-1/2 -translate-x-1/2 z-30 animate-bounce-subtle">
     <div class="flex flex-col items-center gap-2">
-      <span class="text-white/50 text-xs uppercase tracking-widest">Scroll</span>
-      <svg class="w-5 h-5 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <span class="text-white/50 text-xs uppercase tracking-widest">{t("hero.scroll")}</span>
+      <svg class="w-5 h-5 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
       </svg>
     </div>

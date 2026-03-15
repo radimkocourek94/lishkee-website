@@ -1,27 +1,39 @@
 ---
 import { band } from "../data/band"
+import { useTranslations, localePath, getAlternateLocalePath } from "../i18n"
+import type { Locale } from "../i18n"
+
+interface Props {
+  lang?: Locale
+  [key: string]: unknown
+}
+
+const locale = Astro.props.lang ?? "en"
+const t = useTranslations(locale)
 
 const currentPath = Astro.url.pathname
 const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/music", label: "Music" },
-  { href: "/about", label: "About" },
-  // EPK temporarily hidden — re-add when ready
+  { href: localePath("/", locale), label: t("nav.home") },
+  { href: localePath("/music", locale), label: t("nav.music") },
+  { href: localePath("/about", locale), label: t("nav.about") },
 ]
+
+const alternate = getAlternateLocalePath(currentPath)
+const switchLabel = alternate.locale === "cs" ? "CS" : "EN"
 ---
 
 <nav class="sticky top-0 z-50 bg-bg/80 backdrop-blur-md border-b border-white/5" id="main-nav">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       <!-- Logotype -->
-      <a href="/" class="font-gajraj text-2xl font-semibold tracking-wide text-accent hover:text-accent-hover transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(246,193,157,0.4)]">
+      <a href={localePath("/", locale)} class="font-gajraj text-2xl font-semibold tracking-wide text-accent hover:text-accent-hover transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(246,193,157,0.4)]">
         {band.logotype}
       </a>
 
-      <!-- Desktop nav links -->
+      <!-- Desktop nav links + lang switcher -->
       <div class="hidden md:flex items-center space-x-1">
         {navLinks.map((link) => {
-          const isActive = currentPath === link.href || (link.href !== "/" && currentPath.startsWith(link.href))
+          const isActive = currentPath === link.href || (link.href !== localePath("/", locale) && currentPath.startsWith(link.href))
           return (
             <a
               href={link.href}
@@ -39,13 +51,20 @@ const navLinks = [
             </a>
           )
         })}
+        <a
+          href={alternate.path}
+          class="ml-2 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider border border-white/15 rounded-lg text-text/60 hover:text-accent hover:border-accent/40 transition-all duration-300"
+          aria-label={alternate.locale === "cs" ? "Přepnout na češtinu" : "Switch to English"}
+        >
+          {switchLabel}
+        </a>
       </div>
 
       <!-- Hamburger button (mobile) -->
       <button
         id="hamburger-btn"
         class="md:hidden relative w-10 h-10 flex items-center justify-center text-text hover:text-accent transition-colors rounded-lg hover:bg-white/5"
-        aria-label="Open menu"
+        aria-label={t("nav.openMenu")}
         aria-expanded="false"
       >
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -59,7 +78,7 @@ const navLinks = [
   <div id="mobile-menu" class="md:hidden mobile-menu-enter">
     <div class="px-4 pt-2 pb-4 space-y-1 border-t border-white/5">
       {navLinks.map((link) => {
-        const isActive = currentPath === link.href || (link.href !== "/" && currentPath.startsWith(link.href))
+        const isActive = currentPath === link.href || (link.href !== localePath("/", locale) && currentPath.startsWith(link.href))
         return (
           <a
             href={link.href}
@@ -74,6 +93,13 @@ const navLinks = [
           </a>
         )
       })}
+      <a
+        href={alternate.path}
+        class="block py-2.5 px-3 text-sm font-medium rounded-lg text-text/60 hover:text-accent hover:bg-white/5 transition-all duration-200"
+        aria-label={alternate.locale === "cs" ? "Přepnout na češtinu" : "Switch to English"}
+      >
+        {alternate.locale === "cs" ? "🇨🇿 Česky" : "🇬🇧 English"}
+      </a>
     </div>
   </div>
 </nav>
