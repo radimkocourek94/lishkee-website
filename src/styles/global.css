@@ -135,6 +135,25 @@
   font-family: var(--font-body);
 }
 
+/* Decorative title visual style (CSS-based) */
+/* NOTE: We keep this commented out in case a CSS-based decorative title
+   is preferred later. The project currently uses decorative Unicode
+   characters directly in the anchor text for these titles. */
+/* .fancy-title {
+  font-family: var(--font-display), var(--font-body), serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.02em;
+  display: inline-block;
+  line-height: 1;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+  transition: color 0.2s ease, text-shadow 0.2s ease, transform 0.12s ease;
+}
+.fancy-title:hover {
+  transform: translateY(-1px);
+  text-shadow: 0 2px 12px var(--color-glow);
+} */
+
 /* ── Scroll-triggered animations ── */
 @keyframes fadeInUp {
   from {

@@ -23,9 +23,9 @@ export const cs: Translations = {
 
   // --- Hero ---
   "hero.tagline": "Indie Alt-Pop z Brna",
-  "hero.listenNow": "Poslouchat",
+  "hero.listenNow": "Hudba",
   "hero.learnMore": "V\u00EDce info",
-  "hero.scroll": "Rol",
+  "hero.scroll": "Scroll",
   "hero.img1Alt": "Lishkee na \u017Eivo - foto Tom\u00E1\u0161 \u0160koda",
   "hero.img2Alt": "Lishkee duo portr\u00E9t - foto Tom\u00E1\u0161 \u0160koda",
   "hero.img3Alt": "Lishkee foto kapely - foto Tom\u00E1\u0161 \u0160koda",
@@ -53,7 +53,7 @@ export const cs: Translations = {
   // --- About page ---
   "about.heading": "O Lishkee",
   "about.heroAlt": "Foto kapely Lishkee od Tom\u00E1\u0161e \u0160kody",
-  "about.theDuo": "Duo",
+  "about.theDuo": "Členové",
   "about.basedIn": "P\u016Fsob\u00ED v",
   "about.contactBooking": "Kontakt a booking",
   "about.bookingPress": "Booking / press:",
@@ -62,15 +62,15 @@ export const cs: Translations = {
   "about.theirSocials": "soci\u00E1ln\u00ED s\u00EDt\u011B",
 
   // --- About page: band bio ---
-  "about.bio": `Lishkee je indie alt-pop projekt z Brna, kter\u00FD tvo\u0159\u00ED Vikt\u00F3ria \u0160m\u00EDdov\u00E1 a Radim Kocourek. Jejich hudba m\u00EDs\u00ED prvky electroniky, popu, downtempo a jazzu a vyzna\u010Duje se sn\u00EDvou, intimn\u00ED melodi\u00ED a vrstvenou instrument\u00E1ln\u00ED texturou. Sv\u00E9 p\u00EDsn\u011B prod\u016Fkuj\u00ED ve sv\u00E9m mal\u00E9m dom\u00E1c\u00EDm studiu s d\u016Frazem na DIY p\u0159\u00EDstup.
+  "about.bio": `Lishkee je indie alt-pop projekt z Brna, který tvoří Viktória Šmídová a Radim Kocourek. V jejich hudbě se mísí prvky electroniky, popu, downtempa a jazzu a vyznačuje se snivou atmosférou, intimními melodiemi a vrstvenými instrumentálními texturami. Svou tvorbu produkují ve svém malém domácím studiu s důrazem na DIY.
 
-Pod sv\u00FDm d\u0159\u00EDv\u011Bj\u0161\u00EDm n\u00E1zvem Stereofox vydali v roce 2017 demo album *Layers*, kter\u00E9 bylo nominov\u00E1no na Objev roku na slovenskou cenu Radio_Head Awards. V roce 2018 se jejich singl *Distortions* dostal do fin\u00E1le sout\u011B\u017Ee Radio Wave Starter, co\u017E vedlo k vystoupen\u00ED na slovensk\u00E9m festivalu Pohoda.
+Pod svým dřívějším názvem Stereofox vydali v roce 2017 demo album *Layers*, které bylo nominováno na Objev roku na slovenskou cenu Radio_Head Awards. V roce 2018 se jejich singl *Distortions* dostal do finále soutěže Radio Wave Starter, což vedlo k vystoupení na slovenském festivalu Pohoda.
 
-V roce 2024 se z\u00FA\u010Dastnili site-specific performance s n\u00E1zvem *Labyrint*, pro kterou p\u0159ipravili na m\u00EDru \u0161it\u00FD soundtrack.
+V roce 2024 se podíleli na site-specific performance s názvem *Labyrint*, pro kterou připravili na míru šitý soundtrack.
 
-V dubnu 2025 Lishkee vydali kompila\u010Dn\u00ED album *Collections of Pink, Blue, and All the Other Colors, Too*. Zvuk alba lze nejl\u00E9pe popsat jako kombinaci dream popu a temn\u00E9 electroniky.
+V dubnu 2025 Lishkee vydali kompilační album *Collections of Pink, Blue, and All the Other Colors, Too*. Zvuk alba lze nejlépe popsat jako kombinaci dream popu a temné electroniky.
 
-Sledujte je na soci\u00E1ln\u00ED s\u00EDt\u011B pro novinky a dal\u0161\u00ED z\u00E1bavn\u00FD obsah!`,
+Sledujte je na sociální sítě pro novinky a další zábavný obsah!`,
 
   // --- Footer ---
   "footer.navigate": "Navigace",

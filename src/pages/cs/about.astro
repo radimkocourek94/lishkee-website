@@ -26,15 +26,19 @@ function renderBio(bio: string, socialsLabel: string): string {
 
   html = html.replace(
     /<em>Layers<\/em>/g,
-    '<a href="https://lishkee.bandcamp.com/album/layers-2?t=2" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent-hover underline underline-offset-2 transition-colors"><em>Layers</em></a>'
+    '<a href="https://lishkee.bandcamp.com/album/layers-2?t=2" target="_blank" rel="noopener noreferrer" aria-label="Layers" class="text-accent hover:text-accent-hover underline underline-offset-2 transition-colors">𝓛𝓪𝔂𝓮𝓻𝓼</a>'
   )
   html = html.replace(
     /<em>Distortions<\/em>/g,
-    '<a href="https://lishkee.bandcamp.com/track/distortions" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent-hover underline underline-offset-2 transition-colors"><em>Distortions</em></a>'
+    '<a href="https://lishkee.bandcamp.com/track/distortions" target="_blank" rel="noopener noreferrer" aria-label="Distortions" class="text-accent hover:text-accent-hover underline underline-offset-2 transition-colors">𝓓𝓲𝓼𝓽𝓸𝓻𝓽𝓲𝓸𝓷𝓼</a>'
   )
   html = html.replace(
     /<em>Labyrint<\/em>/g,
     '<a href="https://kaznice.art/program/divadelni-svet-brno-labyrint/" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent-hover underline underline-offset-2 transition-colors"><em>Labyrint</em></a>'
+  )
+  html = html.replace(
+    /<em>Collections of Pink, Blue, and All the Other Colors, Too<\/em>/g,
+    '<a href="https://lishkee.bandcamp.com/album/collections-of-pink-blue-all-the-other-colors-too" target="_blank" rel="noopener noreferrer" aria-label="Collections of Pink, Blue, and All the Other Colors, Too" class="text-accent hover:text-accent-hover underline underline-offset-2 transition-colors">𝓒𝓸𝓵𝓵𝓮𝓬𝓽𝓲𝓸𝓷𝓼 𝓸𝓯 𝓟𝓲𝓷𝓴, 𝓑𝓵𝓾𝓮, 𝓪𝓷𝓭 𝓐𝓵𝓵 𝓽𝓱𝓮 𝓞𝓽𝓱𝓮𝓻 𝓒𝓸𝓵𝓸𝓻𝓼, 𝓣𝓸𝓸</a>'
   )
   html = html.replace(
     new RegExp(socialsLabel.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "g"),
