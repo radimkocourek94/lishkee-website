@@ -275,6 +275,12 @@
   animation: fadeSlide 24s infinite;
 }
 
+/* Slides 2 & 3 must start hidden; they become visible only when their
+   staggered animation-delay elapses and the keyframe sets opacity: 1. */
+.hero-slide:nth-child(n+2) {
+  opacity: 0;
+}
+
 .hero-slide:nth-child(1) { animation-delay: 0s; }
 .hero-slide:nth-child(2) { animation-delay: 8s; }
 .hero-slide:nth-child(3) { animation-delay: 16s; }
@@ -336,23 +342,27 @@
 @keyframes page-fade-out {
   from {
     opacity: 1;
-    transform: translateY(0);
   }
   to {
     opacity: 0;
-    transform: translateY(-10px);
   }
 }
 
 @keyframes page-fade-in {
   from {
     opacity: 0;
-    transform: translateY(10px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
+}
+
+/* Keep nav & footer perfectly still during page transitions */
+::view-transition-old(nav),
+::view-transition-new(nav),
+::view-transition-old(footer),
+::view-transition-new(footer) {
+  animation: none;
 }
 
 /* ── Reduced motion accessibility ── */
