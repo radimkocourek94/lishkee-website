@@ -5,8 +5,8 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://radimkocourek94.github.io',
-  base: '/lishkee-website',
+  site: 'https://lishkee.com',
+  base: '/',
   integrations: [sitemap()],
   i18n: {
     defaultLocale: 'en',
