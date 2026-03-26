@@ -160,8 +160,8 @@ public/
 
 ## Deployment
 
-- **Target:** GitHub Pages at `https://radimkocourek94.github.io/lishkee-website`.
-- **Base path:** `/lishkee-website` (set in `astro.config.mjs`).
+- **Target:** GitHub Pages at `https://lishkee.com`.
+- **Base path:** `/` (set in `astro.config.mjs`).
 - All asset references must work with this base path. Use Astro's asset handling
   (`astro:assets`, `import` for images) rather than hardcoded absolute paths.
 - Push to `main` triggers the deploy workflow automatically.
