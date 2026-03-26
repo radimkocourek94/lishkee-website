@@ -8,16 +8,18 @@ const canonical = Astro.site ? new URL("/", Astro.site).toString() : redirectPat
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <!-- Inline style so the page is solid black immediately (avoids white flash) -->
+    <style>html,body{height:100%;margin:0;background:#000;color:#000}</style>
     <!-- Immediate client-side redirect for static hosts (GitHub Pages) -->
     <meta http-equiv="refresh" content={
       `0;url=${redirectPath}`
     } />
     <link rel="canonical" href={canonical} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
     <title>Redirecting…</title>
   </head>
   <body>
-    <p>Page moved — redirecting to <a href={redirectPath}>{redirectPath}</a></p>
     <script>{`window.location.replace("${redirectPath}")`}</script>
   </body>
 </html>
