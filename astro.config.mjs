@@ -16,6 +16,25 @@ export default defineConfig({
     },
   },
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    build: {
+      rollupOptions: {
+        // Ignore a benign Rollup warning about unused external imports from
+        // `@astrojs/internal-helpers/remote` that can appear during the Vite
+        // build step. This import is re-exported by Astro and the warning is
+        // harmless for our site; filtering it keeps the build output cleaner.
+        onwarn(warning, warn) {
+          if (
+            warning &&
+            warning.code === "UNUSED_EXTERNAL_IMPORT" &&
+            typeof warning.message === "string" &&
+            /@astrojs\/internal-helpers\/remote/.test(warning.message)
+          ) {
+            return
+          }
+          warn(warning)
+        }
+      }
+    }
   }
 });
