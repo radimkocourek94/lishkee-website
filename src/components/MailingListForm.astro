@@ -1,7 +1,10 @@
 ---
 /**
  * MailingListForm — modern mailing list signup CTA.
- * Uses Netlify Forms attribute for post-deploy compatibility.
+ * Contains optional Netlify form attributes for Netlify deployments.
+ * When deploying to GitHub Pages (default for this repo) those attributes
+ * are inert — consider wiring the form to a third-party form backend
+ * (Formspree/Getform/etc.) or a server-side endpoint for production handling.
  */
 ---
 

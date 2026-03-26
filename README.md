@@ -36,7 +36,7 @@ src/
     Footer.astro       # Site footer with photo credit
     HeroSlider.astro   # Full-width CSS fade slideshow
     TrackList.astro    # Track list with Bandcamp embeds
-    MailingListForm.astro  # Mailing list signup (Netlify Forms)
+    MailingListForm.astro  # Mailing list signup
   data/
     tracks.ts          # Track metadata + Bandcamp embed codes
     releases.ts        # Album/release metadata + embed codes
@@ -90,22 +90,39 @@ All band content lives in `src/data/band.ts`:
 - **Socials**: Fill in URLs for `instagram`, `facebook`, `bandcamp`, `spotify`. Only non-empty values are rendered on the About page.
 - **Logotype**: The decorative name `band.logotype` is used in the nav bar.
 
-## Deploying to Netlify
+## Deploying to GitHub Pages
 
-Push this repo to GitHub, then connect it to Netlify:
+This repository is set up to build and publish the site to GitHub Pages using a GitHub Actions workflow. Pushes to the `main` branch trigger the workflow at `.github/workflows/deploy.yml`, which installs dependencies, runs `npm run build`, and publishes the generated `dist/` output to GitHub Pages.
 
-1. Go to [app.netlify.com](https://app.netlify.com) and click "Add new site" > "Import an existing project"
-2. Select your GitHub repo
-3. Set **Build command** to `npm run build` and **Publish directory** to `dist`
-4. Click "Deploy site"
+Key points:
 
-Netlify will automatically build and deploy on every push to your main branch.
+- The CI workflow that performs the build + publish is at `.github/workflows/deploy.yml`.
+- Push to `main` (or run the workflow manually from the Actions tab) to build and deploy.
+- The production output is the `dist/` directory created by `npm run build`.
+- To use a custom domain, either add a `CNAME` file to `public/` or configure the domain under the repository Settings → Pages.
 
-## Netlify Forms (Mailing List)
+If you prefer Netlify or another host, the project remains compatible — set the build command to `npm run build` and the publish directory to `dist` on your chosen platform.
 
-The mailing list form uses Netlify Forms. Once deployed to Netlify, form submissions are automatically collected in your Netlify dashboard under **Forms**. No additional configuration is needed — the `data-netlify="true"` attribute on the form handles it.
+## Mailing List / Form Handling
 
-For local development, the form submits without error but data is not stored anywhere.
+The site includes a simple HTML form (see `src/components/MailingListForm.astro`). The form markup contains Netlify-specific attributes (`data-netlify="true"` and `netlify-honeypot`) which only enable Netlify's built-in form handling when the site is deployed on Netlify.
+
+Because this repository is configured to deploy to GitHub Pages by default, those Netlify form features will not collect submissions on the live site. Options to enable mailing-list collection when deploying to GitHub Pages:
+
+1. Use a third‑party form backend (recommended) — e.g. Formspree, Getform, FormKeep. Replace the form `action` with the provider endpoint and keep `method="POST"`.
+2. Use a serverless function or your own backend to receive and forward submissions.
+3. Continue deploying to Netlify instead (Netlify will process the existing attributes automatically).
+
+Example (Formspree):
+
+```html
+<form action="https://formspree.io/f/yourFormId" method="POST">
+  <input type="email" name="email" required />
+  <button type="submit">Sign Up</button>
+</form>
+```
+
+For local development, the form will submit in the browser but no server-side storage is available unless you wire it to a backend or third-party service.
 
 ## Commands
 
