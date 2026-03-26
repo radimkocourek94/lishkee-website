@@ -1,0 +1,23 @@
+---
+const basePath = import.meta.env.BASE_URL?.replace(/\/$/, "") ?? ""
+const redirectPath = basePath === "" ? "/" : `${basePath}/`
+const canonical = Astro.site ? new URL("/", Astro.site).toString() : redirectPath
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Immediate client-side redirect for static hosts (GitHub Pages) -->
+    <meta http-equiv="refresh" content={
+      `0;url=${redirectPath}`
+    } />
+    <link rel="canonical" href={canonical} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting…</title>
+  </head>
+  <body>
+    <p>Page moved — redirecting to <a href={redirectPath}>{redirectPath}</a></p>
+    <script>{`window.location.replace("${redirectPath}")`}</script>
+  </body>
+</html>
