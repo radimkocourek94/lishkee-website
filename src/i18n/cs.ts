@@ -62,15 +62,16 @@ export const cs: Translations = {
   "about.theirSocials": "soci\u00E1ln\u00EDch s\u00EDt\u00EDch",
 
   // --- About page: band bio ---
-  "about.bio": `Lishkee je indie alt-pop projekt z Brna, který tvoří Viktória Šmídová a Radim Kocourek. V jejich hudbě se mísí prvky elektroniky, popu, downtempa a jazzu a vyznačuje se snivou atmosférou, intimními melodiemi a vrstvenými instrumentálními texturami. Svou tvorbu produkují ve svém malém domácím studiu s důrazem na DIY.
+  "about.bio": `Lishkee je indie alt-pop projekt z Brna, který tvoří Viktória Šmídová a Radim Kocourek. Jejich hudba se pohybuje na pomezí dream popu, downtempa a elektroniky. Vyznačuje se snivou, intimní atmosférou. Produkují ji sami, ve svém malém domácím studiu.
 
-Pod svým dřívějším názvem Stereofox vydali v roce 2017 demo album *Layers*, které bylo nominováno na Objev roku na slovenskou cenu Radio_Head Awards. V roce 2018 se jejich singl *Distortions* dostal do finále soutěže Radio Wave Starter, což vedlo k vystoupení na slovenském festivalu Pohoda.
+Pod původním názvem Stereofox vydali v roce 2017 demo album *Layers*, které bylo nominováno na Objev roku na slovenskou cenu Radio_Head Awards. O rok později se jejich singl *Distortions* dostal do finále soutěže Radio Wave Startér a přinesl jim vystoupení na festivalu Pohoda. V roce 2022 projekt přejmenovali na Lishkee, kdy se vydali novou cestou.
 
 V roce 2024 se podíleli na site-specific performance s názvem *Labyrint*, pro kterou připravili na míru šitý soundtrack.
 
-  V dubnu 2025 Lishkee vydali kompilační album *Collections of Pink, Blue, and All the Other Colors, Too*. Zvuk alba lze nejlépe popsat jako kombinaci dream popu a temné elektroniky.
+V dubnu 2025 Lishkee vydali kompilační album/mixtape *Collections of Pink, Blue, and All the Other Colors, Too*. Zvuk tohoto alba lze nejlépe popsat jako kombinaci dream popu a temné elektroniky.
 
-  Sledujte je na sociálních sítích!`,
+Jejich hudbu najdete na všech streamovacích platformách. Pro aktualní koncerty je sledujte na sociálních sítích.
+`,
 
   // --- Footer ---
   "footer.navigate": "Navigace",
