@@ -50,7 +50,7 @@ export const cs: Translations = {
     "Collections of Pink, Blue, and All the Other Colors, Too od Lishkee na Bandcampu",
   "music.albumIframeFallback":
     "Collections of Pink, Blue, & All the Other Colors, Too od Lishkee",
-  "music.listenEverywhere": "Poslouchejte v\u0161ude",
+  "music.listenEverywhere": "Poslouchejte kdekoliv",
   "music.listenEverywhereDesc":
     "Najd\u011Bte Lishkee na va\u0161\u00ED obl\u00EDben\u00E9 streamovac\u00ED platform\u011B.",
   "music.showsCta": "Nadch\u00E1zej\u00EDc\u00ED koncerty",

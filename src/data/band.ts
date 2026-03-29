@@ -1,6 +1,6 @@
 export const band = {
   name: "Lishkee",
-  logotype: "\u22C6\u208A\u2339Lishkee\u2339\u208A\u22C6",
+  logotype: "\u22C6\u208A\u22B9Lishkee\u22B9\u208A\u22C6",
   members: [
     {
       name: "Vikt\u00F3ria \u0160m\u00EDdov\u00E1",
