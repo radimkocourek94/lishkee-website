@@ -6,7 +6,7 @@ export const cs: Translations = {
     "Lishkee \u2014 indie alt-pop z Brna. Dream pop a temn\u00E1 electronica.",
   "meta.home.title": "Lishkee \u2014 Indie Alt-Pop z Brna",
   "meta.home.description":
-    "Lishkee je indie alt-pop duo z Brna, kter\u00E9 m\u00EDs\u00ED dream pop, electronicu a temn\u00E9 atmosf\u00E9ry.",
+    "Lishkee je indie alt-pop duo z Brna, kter\u00E9 m\u00EDs\u00ED dream pop, trip-hop, a temnou elektroniku.",
   "meta.music.title": "Hudba \u2014 Lishkee",
   "meta.music.description":
     "Poslouchejte hudbu Lishkee \u2014 alba, singly a v\u0161echno mezi t\u00EDm. Indie alt-pop z Brna.",
