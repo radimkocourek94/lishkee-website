@@ -1,0 +1,121 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro"
+import { useTranslations } from "../i18n"
+
+const locale = "en" as const
+const t = useTranslations(locale)
+
+// Parse a show list string into { event, date, year } entries
+function parseShows(raw: string) {
+  if (!raw.trim()) return []
+  return raw
+    .split(/\r?\n/)
+    .map((s) => s.trim())
+    .filter(Boolean)
+    .map((line) => {
+      const lastComma = line.lastIndexOf(",")
+      if (lastComma === -1) return { event: line, date: "", year: "" }
+      const event = line.slice(0, lastComma).trim()
+      const date = line.slice(lastComma + 1).trim()
+      const yearMatch = date.match(/\b(20\d{2})\b/) || line.match(/\b(20\d{2})\b/)
+      const year = yearMatch ? yearMatch[1] : ""
+      return { event, date, year }
+    })
+}
+
+// Group shows by year, preserving original order within each year
+function groupByYear(shows: { event: string, date: string, year: string }[]) {
+  const groups: { year: string, shows: { event: string, date: string }[] }[] = []
+  const seen = new Map<string, number>()
+  for (const show of shows) {
+    const key = show.year || "Other"
+    if (seen.has(key)) {
+      groups[seen.get(key)!].shows.push({ event: show.event, date: show.date })
+    } else {
+      seen.set(key, groups.length)
+      groups.push({ year: key, shows: [{ event: show.event, date: show.date }] })
+    }
+  }
+  return groups
+}
+
+const upcomingShows = parseShows(t("shows.upcomingList"))
+const pastShows = parseShows(t("shows.list"))
+const pastGroups = groupByYear(pastShows)
+const hasUpcoming = upcomingShows.length > 0
+const basePath = (import.meta.env.BASE_URL ?? "/").replace(/\/$/, "")
+---
+
+<BaseLayout
+  title={t("meta.shows.title")}
+  description={t("meta.shows.description")}
+  lang={locale}
+>
+  {/* Hero */}
+  <div class="relative pt-20 pb-12 sm:pt-24 sm:pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-pal-9/10 rounded-full blur-3xl" />
+      <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-pal-5/10 rounded-full blur-3xl" />
+    </div>
+    <div class="relative z-10 text-center max-w-4xl mx-auto">
+      <span class="accent-line mb-4 block mx-auto" />
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold text-accent mb-3 sm:mb-4">{t("shows.heading")}</h1>
+      <p class="text-text/60 text-base sm:text-lg max-w-md mx-auto">{t("shows.subtitle")}</p>
+    </div>
+  </div>
+
+  {/* Upcoming shows */}
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-12">
+    <h2 class="text-xl sm:text-2xl font-semibold text-accent mb-6">{t("shows.upcomingHeading")}</h2>
+
+    {hasUpcoming ? (
+      <ul class="space-y-3">
+        {upcomingShows.map((show) => (
+          <li class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3 py-3 border-b border-white/5 last:border-b-0">
+            <span class="text-xs font-semibold uppercase tracking-wider text-accent shrink-0">{show.date}</span>
+            <span class="text-text/85 text-sm sm:text-base">{show.event}</span>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <div class="px-6 py-10 sm:py-12 text-center">
+        <img
+          src={`${basePath}/icons/fox-svgrepo-com.svg`}
+          alt=""
+          class="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-5"
+          aria-hidden="true"
+        />
+        <p class="text-text/80 text-base sm:text-lg font-medium mb-1">{t("shows.emptyMain")}</p>
+        <p class="text-muted text-sm sm:text-base">{t("shows.emptyCta")}</p>
+      </div>
+    )}
+  </section>
+
+  <div class="section-divider max-w-xs mx-auto mb-12 sm:mb-16" />
+
+  {/* Past shows grouped by year */}
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+    <h2 class="text-xl sm:text-2xl font-semibold text-accent mb-8">{t("shows.pastHeading")}</h2>
+
+    <div class="space-y-10 sm:space-y-12">
+      {pastGroups.map((group) => (
+        <div>
+          <div class="flex items-center gap-4 mb-4 sm:mb-5">
+            <h3 class="text-lg sm:text-xl font-bold text-accent/80 shrink-0">{group.year}</h3>
+            <div class="h-px flex-1 bg-accent/15" />
+          </div>
+          <ul class="space-y-0">
+            {group.shows.map((show) => (
+              <li class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3 py-3 border-b border-white/5 last:border-b-0">
+                {show.date ? (
+                  <span class="text-xs font-semibold uppercase tracking-wider text-accent/60 shrink-0 sm:w-40">{show.date}</span>
+                ) : null}
+                <span class="text-text/85 text-sm sm:text-base">{show.event}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

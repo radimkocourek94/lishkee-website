@@ -17,6 +17,7 @@ export const cs: Translations = {
   // --- Navigation ---
   "nav.home": "Dom\u016F",
   "nav.music": "Hudba",
+  "nav.shows": "Koncerty",
   "nav.about": "O n\u00E1s",
   "nav.openMenu": "Otev\u0159\u00EDt menu",
   "nav.skipToContent": "P\u0159esko\u010Dit na hlavn\u00ED obsah",
@@ -49,6 +50,68 @@ export const cs: Translations = {
     "Collections of Pink, Blue, and All the Other Colors, Too od Lishkee na Bandcampu",
   "music.albumIframeFallback":
     "Collections of Pink, Blue, & All the Other Colors, Too od Lishkee",
+
+  // --- Shows page ---
+  "meta.shows.title": "Koncerty \u2014 Lishkee",
+  "meta.shows.description": "Přehled odehraných a plánovaných koncertů a festivalů.",
+  "shows.heading": "Koncerty",
+  "shows.subtitle": "Přehled vybraných odehraných a nadcházejících vystoupení.",
+  "shows.upcomingHeading": "Nadcházející koncerty",
+  "shows.upcomingList": "",
+  "shows.emptyMain": "Lišky odpočívají\u2026",
+  "shows.emptyCta": "Pro novinky nás sledujte na sociálních sítích!",
+  "shows.pastHeading": "Odehrané a významné koncerty",
+  "shows.list": `Koncert s Mlhovina a Mad Velvet, Kafara Brno, únor 2026
+Nebál, Nová Zbrojovka Brno, září 2025
+Living room s Abundance, ArtBar Brno, srpen 2025
+Sweetsenfest, Frýdek Místek, červen 2025
+Koncert s whyohwhy, Alterna Brno, únor 2025
+Pepsi Free Night, s Mlhovina a aljoša, Melodka Brno, prosinec 2024
+Koncert s Černý tesák, Ears of Village, Milotice, listopad 2024
+Music Piknik festival, Skalica, září 2024
+Festival Rosnička, Svitavy, červen 2024
+Sweetsenfest, Frýdek Místek, červen 2024
+Vinyl Burza, Frýdek Místek, březen 2024
+Koncert s Ananda Mida a Cosmobrigade, Yachtklub Brno, listopad 2023
+Faktor K, říjen 2023
+Yachtfest, září 2023
+Vernisáž výstavy Zdeňka Tománka, Jistebník, září 2023
+Festival Luft, Ostrava, září 2023
+Vernisáž výstavy v Brušperku, srpen 2023
+Sweetsenfest, Frýdek Místek, červen 2023
+Ghettofest, červen 2023
+Koncert s Grayle, Kafara Brno, květen 2023
+Jarní Market, Rožnov pod Radhoštem, květen 2023
+Koncert s Grayle a Kairtheris, Úl Praha, duben 2023
+Koncert s Grayle, Čajovna ve Vlnách, Děčín, únor 2023
+Echo Festival, Skalica, srpen 2020
+Festival Oné, Art Bar Brno, listopad 2019
+Koncert v Orlovni, Skalica, prosinec 2019
+Vernisáž výstavy Řez Václava Buchtelíka, Jatka78, prosinec 2019
+Support pro Decadent Fun Club, Dock Ostrava, září 2019
+Nuance Skalica, září 2019
+Support pro Straytones, Bajkazyl Brno, září 2019
+Dub-beat, Jablonné nad Orlicí, prosinec 2018
+Support pro Circuit des Yeux, Klub Famu, Praha, listopad 2018
+Be26: Sounds Czech, Roxy Praha, říjen 2018
+Nuance Skalica, 2018 September
+Koncert s Plum Dumplings, Stará Pekárna, Brno, srpen 2018
+Koncert v Projekt Genau, Kutná Hora, 2018
+Hviezdne Noci, Bytča, srpen 2018
+Rosnička, Svitavy, srpen 2018
+Pohoda 2018, Trenčín, červenec 2018
+George Mahen's Picnic Experience, Kabinet Múz Open Air, Brno, červen 2018
+Startér Showcase, Cafe v Lese Praha, červen 2018
+Koncert se Silvia Speaks, Kafara Brno, květen 2018
+Koncert s Guilty Echoes, Kluci od Dolního Nádraží, Bajkazyl Brno, únor 2018
+Urban market, Bratislava, 2017
+Koncert se Silvia speaks, Bukowski Bratislava, listopad 2017
+Support pro Fiordmoss, M-Klub, Valašské Meziříčí, listopad 2017
+Hudba pod hradbami, Skalica, září 2017
+Demovnica Showcase, Nu Spirit Club Bratislava, září 2017
+Pepsi Free Night, Melodka Brno, Srpen 2017
+Vernisáž výstavy Konzum Nirvana, Ostrava, květen 2017
+Nuance 2016, Skalica`,
 
   // --- About page ---
   "about.heading": "O Lishkee",
