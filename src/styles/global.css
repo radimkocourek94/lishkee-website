@@ -397,6 +397,16 @@
   animation: none;
 }
 
+/* Hide the old snapshot of nav/footer to avoid ghosting when content changes.
+   View Transitions creates an "old" snapshot while animating; when nav
+   content updates (language switch) the old snapshot can briefly show the
+   previous-language nav. Make the old snapshot invisible and non-interactive. */
+::view-transition-old(nav),
+::view-transition-old(footer) {
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* ── Reduced motion accessibility ── */
 @media (prefers-reduced-motion: reduce) {
   *,
