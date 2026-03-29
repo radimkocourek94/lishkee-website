@@ -56,14 +56,14 @@ const t = useTranslations(locale)
       <h2 class="text-3xl sm:text-5xl font-semibold text-accent mb-4">{t("home.stayInTheLoop")}</h2>
       <p class="text-text/70 mb-8 text-base sm:text-lg">{t("home.stayInTheLoopDesc")}</p>
 
-      <div class="flex flex-wrap gap-3 justify-center">
+      <div class="link-card-grid grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:justify-center">
         {Object.entries(band.socials).map(([key, url]) =>
           url ? (
             <a
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              class="group inline-flex items-center gap-2.5 px-6 py-3 border border-white/10 rounded-xl text-sm font-medium text-text/80 hover:text-accent hover:border-accent/40 hover:bg-accent/5 transition-colors duration-200"
+              class="group inline-flex items-center justify-center gap-2.5 px-6 py-3 border border-white/10 rounded-xl text-sm font-medium text-text/80 hover:text-accent hover:border-accent/40 hover:bg-accent/5 transition-colors duration-200"
             >
               <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                 <path d={socialIcons[key] || ""} />

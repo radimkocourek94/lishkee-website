@@ -173,6 +173,14 @@
   text-shadow: 0 2px 12px var(--color-glow);
 } */
 
+/* ── Link card grid — center last odd item on mobile ── */
+@media (max-width: 639px) {
+  .link-card-grid > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+}
+
 /* ── Scroll-triggered animations ── */
 @keyframes fadeInUp {
   from {

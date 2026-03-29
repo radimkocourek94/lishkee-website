@@ -71,7 +71,7 @@ const streamingPlatforms = ["spotify", "appleMusic", "youtubeMusic", "amazonMusi
     <h2 class="text-2xl sm:text-3xl font-semibold text-accent mb-3">{t("music.listenEverywhere")}</h2>
     <p class="text-text/60 text-base mb-8 max-w-md mx-auto">{t("music.listenEverywhereDesc")}</p>
 
-    <div class="flex flex-wrap gap-3 justify-center">
+    <div class="link-card-grid grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:justify-center">
       {streamingPlatforms.map((key) => {
         const url = streamingLinks[key]
         return url ? (
@@ -79,7 +79,7 @@ const streamingPlatforms = ["spotify", "appleMusic", "youtubeMusic", "amazonMusi
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            class="group inline-flex items-center gap-2.5 px-6 py-3 border border-white/10 rounded-xl text-sm font-medium text-text/80 hover:text-accent hover:border-accent/40 hover:bg-accent/5 transition-colors duration-200"
+            class="group inline-flex items-center justify-center gap-2.5 px-6 py-3 border border-white/10 rounded-xl text-sm font-medium text-text/80 hover:text-accent hover:border-accent/40 hover:bg-accent/5 transition-colors duration-200"
           >
             <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
               <path d={socialIcons[key] || ""} />
