@@ -50,6 +50,10 @@ export const en: Translations = {
     "Collections of Pink, Blue, and All the Other Colors, Too by Lishkee on Bandcamp",
   "music.albumIframeFallback":
     "Collections of Pink, Blue, & All the Other Colors, Too by Lishkee",
+  "music.listenEverywhere": "Listen Everywhere",
+  "music.listenEverywhereDesc":
+    "Find Lishkee on your favourite streaming platform.",
+  "music.showsCta": "See upcoming shows",
 
   // --- Shows page ---
   "meta.shows.title": "Shows \u2014 Lishkee",
@@ -117,11 +121,12 @@ Nuance 2016, Skalica`,
   "about.heading": "About Lishkee",
   "about.heroAlt": "Lishkee band photo by Tomas Skoda",
   "about.theDuo": "Members",
-  "about.basedIn": "Based in",
+  "about.basedIn": "Based in Brno, Czechia",
   "about.contactBooking": "Contact & booking",
   "about.bookingPress": "Booking/press:",
   "about.moreLinks": "More links:",
   "about.followUs": "Follow Us",
+  "about.listenCta": "Listen to our music",
   "about.theirSocials": "their socials",
 
   // --- About page: band bio ---
@@ -140,4 +145,10 @@ Follow them on their socials for updates and other fun content!`,
   "footer.connect": "Connect",
   "footer.allRightsReserved": "All rights reserved.",
   "footer.photosBy": "Photos by",
+
+  // --- 404 page ---
+  "meta.404.title": "Page Not Found \u2014 Lishkee",
+  "404.heading": "Lost in the layers",
+  "404.message": "The page you\u2019re looking for doesn\u2019t exist or has been moved.",
+  "404.backHome": "Back to home",
 }

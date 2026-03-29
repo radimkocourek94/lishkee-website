@@ -3,55 +3,13 @@ import { Image } from "astro:assets"
 import BaseLayout from "../layouts/BaseLayout.astro"
 import { band } from "../data/band"
 import { socialLabels, socialIcons } from "../data/socials"
-import { useTranslations } from "../i18n"
+import { useTranslations, localePath } from "../i18n"
+import { renderBio } from "../utils/renderBio"
 
 import heroBg from "../assets/images/lishkee4-tomas-skoda.jpg"
 
 const locale = "en" as const
 const t = useTranslations(locale)
-
-/**
- * Renders the bio text with:
- * - Markdown-style *italic* for album/single titles
- * - Specific phrases linked
- * - Paragraph breaks preserved
- */
-function renderBio(bio: string, socialsLabel: string): string {
-  let html = bio
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-
-  html = html.replace(/\*([^*]+)\*/g, "<em>$1</em>")
-
-  html = html.replace(
-    /<em>Layers<\/em>/g,
-    '<a href="https://lishkee.bandcamp.com/album/layers-2?t=2" target="_blank" rel="noopener noreferrer" aria-label="Layers" class="text-accent hover:text-accent-hover underline underline-offset-2 transition-colors">𝓛𝓪𝔂𝓮𝓻𝓼</a>'
-  )
-  html = html.replace(
-    /<em>Distortions<\/em>/g,
-    '<a href="https://lishkee.bandcamp.com/track/distortions" target="_blank" rel="noopener noreferrer" aria-label="Distortions" class="text-accent hover:text-accent-hover underline underline-offset-2 transition-colors">𝓓𝓲𝓼𝓽𝓸𝓻𝓽𝓲𝓸𝓷𝓼</a>'
-  )
-  html = html.replace(
-    /<em>Collections of Pink, Blue, and All the Other Colors, Too<\/em>/g,
-    '<a href="https://lishkee.bandcamp.com/album/collections-of-pink-blue-all-the-other-colors-too" target="_blank" rel="noopener noreferrer" aria-label="Collections of Pink, Blue, and All the Other Colors, Too" class="text-accent hover:text-accent-hover underline underline-offset-2 transition-colors">𝓒𝓸𝓵𝓵𝓮𝓬𝓽𝓲𝓸𝓷𝓼 𝓸𝓯 𝓟𝓲𝓷𝓴, 𝓑𝓵𝓾𝓮, 𝓪𝓷𝓭 𝓐𝓵𝓵 𝓽𝓱𝓮 𝓞𝓽𝓱𝓮𝓻 𝓒𝓸𝓵𝓸𝓻𝓼, 𝓣𝓸𝓸</a>'
-  )
-  html = html.replace(
-    /<em>Labyrint<\/em>/g,
-    '<a href="https://kaznice.art/program/divadelni-svet-brno-labyrint/" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent-hover underline underline-offset-2 transition-colors"><em>Labyrint</em></a>'
-  )
-  html = html.replace(
-    new RegExp(socialsLabel.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "g"),
-    `<a href="https://linktr.ee/lishkee" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent-hover underline underline-offset-2 transition-colors">${socialsLabel}</a>`
-  )
-
-  html = html
-    .split("\n\n")
-    .map((p) => `<p class="mb-6 leading-relaxed">${p.trim()}</p>`)
-    .join("")
-
-  return html
-}
 
 const bioHtml = renderBio(t("about.bio"), t("about.theirSocials"))
 ---
@@ -111,14 +69,11 @@ const bioHtml = renderBio(t("about.bio"), t("about.theirSocials"))
             {member.role ? (
               <p class="text-sm text-text/80 mt-2"><strong>{member.role}</strong></p>
             ) : null}
-            {member.description ? (
-              <p class="text-sm text-text/70 mt-2">{member.description}</p>
-            ) : null}
           </div>
         ))}
       </div>
       <p class="text-center text-muted text-sm mt-6">
-        {t("about.basedIn")} {band.location}
+        {t("about.basedIn")}
       </p>
     </section>
     
@@ -130,6 +85,18 @@ const bioHtml = renderBio(t("about.bio"), t("about.theirSocials"))
         <p class="text-text/80">{t("about.bookingPress")} <a href="mailto:lishkee.cz@gmail.com" class="text-accent hover:text-accent-hover underline underline-offset-2">lishkee.cz@gmail.com</a></p>
         <p class="text-text/80 mt-3">{t("about.moreLinks")} <a href="https://linktr.ee/lishkee" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent-hover underline underline-offset-2">linktr.ee/lishkee</a></p>
       </div>
+    </section>
+
+    <div class="section-divider mb-16" />
+
+    {/* Listen CTA */}
+    <section class="mb-16 text-center">
+      <a
+        href={localePath("/music", locale)}
+        class="btn-gradient text-sm sm:text-base inline-block"
+      >
+        {t("about.listenCta")}
+      </a>
     </section>
 
     <div class="section-divider mb-16" />
@@ -150,7 +117,7 @@ const bioHtml = renderBio(t("about.bio"), t("about.theirSocials"))
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              class="group inline-flex items-center gap-2.5 px-6 py-3 border border-white/10 rounded-xl text-sm font-medium text-text/80 hover:text-accent hover:border-accent/40 hover:bg-accent/5 transition-all duration-300"
+              class="group inline-flex items-center gap-2.5 px-6 py-3 border border-white/10 rounded-xl text-sm font-medium text-text/80 hover:text-accent hover:border-accent/40 hover:bg-accent/5 transition-colors duration-200"
             >
               <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                 <path d={socialIcons[key] || ""} />

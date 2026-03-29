@@ -33,12 +33,12 @@ const switchLabel = alternate.locale === "cs" ? "CS" : "EN"
 <nav class="sticky top-0 z-50 bg-bg/80 backdrop-blur-md border-b border-white/5" id="main-nav" transition:name="nav">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
-      <!-- Logotype -->
-      <a href={localePath("/", locale)} class="font-gajraj text-2xl font-semibold tracking-wide text-accent hover:text-accent-hover transition-all duration-300 hover:drop-shadow-[0_0_12px_rgba(246,193,157,0.4)]">
+      {/* Logotype */}
+      <a href={localePath("/", locale)} class="font-gajraj text-2xl font-semibold tracking-wide text-accent hover:text-accent-hover transition-colors duration-300">
         {band.logotype}
       </a>
 
-      <!-- Desktop nav links + lang switcher -->
+      {/* Desktop nav links + lang switcher */}
       <div class="hidden md:flex items-center space-x-1">
         {navLinks.map((link) => {
           const normalizedLink = normalizePath(link.href)
@@ -48,8 +48,9 @@ const switchLabel = alternate.locale === "cs" ? "CS" : "EN"
           return (
             <a
               href={link.href}
+              aria-current={isActive ? "page" : undefined}
               class:list={[
-                "relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300",
+                "relative px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200",
                 isActive
                   ? "text-accent bg-accent/10"
                   : "text-text/70 hover:text-text hover:bg-white/5",
@@ -64,14 +65,14 @@ const switchLabel = alternate.locale === "cs" ? "CS" : "EN"
         })}
         <a
           href={alternate.path}
-          class="ml-2 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider border border-white/15 rounded-lg text-text/60 hover:text-accent hover:border-accent/40 transition-all duration-300"
+          class="ml-2 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider border border-white/15 rounded-lg text-text/60 hover:text-accent hover:border-accent/40 transition-colors duration-200"
           aria-label={alternate.locale === "cs" ? "Přepnout na češtinu" : "Switch to English"}
         >
           {switchLabel}
         </a>
       </div>
 
-      <!-- Hamburger button (mobile) -->
+      {/* Hamburger button (mobile) */}
       <button
         id="hamburger-btn"
         class="md:hidden relative w-10 h-10 flex items-center justify-center text-text hover:text-accent transition-colors rounded-lg hover:bg-white/5"
@@ -85,7 +86,7 @@ const switchLabel = alternate.locale === "cs" ? "CS" : "EN"
     </div>
   </div>
 
-  <!-- Mobile drawer -->
+  {/* Mobile drawer */}
   <div id="mobile-menu" class="md:hidden mobile-menu-enter">
     <div class="px-4 pt-2 pb-4 space-y-1 border-t border-white/5">
       {navLinks.map((link) => {
@@ -96,8 +97,9 @@ const switchLabel = alternate.locale === "cs" ? "CS" : "EN"
         return (
           <a
             href={link.href}
+            aria-current={isActive ? "page" : undefined}
             class:list={[
-              "block py-2.5 px-3 text-sm font-medium rounded-lg transition-all duration-200",
+              "block py-2.5 px-3 text-sm font-medium rounded-lg transition-colors duration-200",
               isActive
                 ? "text-accent bg-accent/10"
                 : "text-text/70 hover:text-text hover:bg-white/5",

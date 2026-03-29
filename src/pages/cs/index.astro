@@ -17,7 +17,7 @@ const t = useTranslations(locale)
   {/* 1. Hero Slideshow */}
   <HeroSlider lang={locale} />
 
-  <!-- Latest single card -->
+  {/* Latest single card */}
   <section class="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
     <div class="relative z-10 max-w-4xl mx-auto">
       <div class="text-center mb-12">
@@ -33,7 +33,6 @@ const t = useTranslations(locale)
                 <iframe
                   loading="lazy"
                   src="https://bandcamp.com/EmbeddedPlayer/track=389067325/size=large/bgcol=333333/linkcol=ffffff/tracklist=false/transparent=true/"
-                  seamless
                   title={t("home.iframeTitle")}
                 ><a href="https://lishkee.bandcamp.com/track/nightmares">{t("home.iframeFallback")}</a></iframe>
               </div>
@@ -46,7 +45,7 @@ const t = useTranslations(locale)
 
   <div class="section-divider max-w-xs mx-auto" />
 
-  <!-- Follow Us -->
+  {/* Follow Us */}
   <section class="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
     <div class="absolute inset-0 z-0">
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl" />
@@ -64,7 +63,7 @@ const t = useTranslations(locale)
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              class="group inline-flex items-center gap-2.5 px-6 py-3 border border-white/10 rounded-xl text-sm font-medium text-text/80 hover:text-accent hover:border-accent/40 hover:bg-accent/5 transition-all duration-300"
+              class="group inline-flex items-center gap-2.5 px-6 py-3 border border-white/10 rounded-xl text-sm font-medium text-text/80 hover:text-accent hover:border-accent/40 hover:bg-accent/5 transition-colors duration-200"
             >
               <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                 <path d={socialIcons[key] || ""} />

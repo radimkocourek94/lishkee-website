@@ -220,14 +220,17 @@
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
-  transition: all 0.3s ease;
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-.glass-card:hover {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.04));
-  border-color: rgba(253, 164, 9, 0.2);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px var(--color-glow);
-  transform: translateY(-2px);
+/* Only apply hover lift/glow on devices with a real pointer (not touch) */
+@media (hover: hover) {
+  .glass-card-interactive:hover {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.04));
+    border-color: rgba(253, 164, 9, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px var(--color-glow);
+    transform: translateY(-2px);
+  }
 }
 
 /* ── Section divider ── */
@@ -245,14 +248,16 @@
   font-weight: 600;
   border-radius: 12px;
   padding: 12px 28px;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 15px var(--color-glow);
 }
 
-.btn-gradient:hover {
-  color: var(--color-bg);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 25px var(--color-glow), 0 0 40px var(--color-glow);
+@media (hover: hover) {
+  .btn-gradient:hover {
+    color: var(--color-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px var(--color-glow), 0 0 40px var(--color-glow);
+  }
 }
 
 /* ── Accent line decoration ── */

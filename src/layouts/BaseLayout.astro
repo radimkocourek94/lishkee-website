@@ -59,7 +59,7 @@ const jsonLd = {
     <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" hreflang={alternate.locale} href={alternateUrl} />
     <link rel="alternate" hreflang={locale} href={canonicalUrl} />
-    <!-- Prefer an SVG vector icon for crisp scaling, keep PNG fallback for older UAs -->
+    {/* Prefer an SVG vector icon for crisp scaling, keep PNG fallback for older UAs */}
     <link rel="icon" href={`${basePath}/icons/fox-svgrepo-com.svg`} type="image/svg+xml" />
     <link rel="icon" href={`${basePath}/icons/foxy-icon-192.png`} sizes="192x192" />
     <link rel="icon" href={`${basePath}/icons/foxy-icon-512.png`} sizes="512x512" />
@@ -67,7 +67,7 @@ const jsonLd = {
     <link rel="mask-icon" href={`${basePath}/icons/fox-svgrepo-com.svg`} color="#FF5023" />
     <link rel="manifest" href={`${basePath}/site.webmanifest`} />
 
-    <!-- Preload display font to prevent logotype reflow -->
+    {/* Preload display font to prevent logotype reflow */}
     <link rel="preload" as="font" type="font/woff2" href={gajrajLatinUrl} crossorigin />
     <link rel="preload" as="font" type="font/woff2" href={gajrajLatinExtUrl} crossorigin />
 

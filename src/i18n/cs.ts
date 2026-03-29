@@ -50,6 +50,10 @@ export const cs: Translations = {
     "Collections of Pink, Blue, and All the Other Colors, Too od Lishkee na Bandcampu",
   "music.albumIframeFallback":
     "Collections of Pink, Blue, & All the Other Colors, Too od Lishkee",
+  "music.listenEverywhere": "Poslouchejte v\u0161ude",
+  "music.listenEverywhereDesc":
+    "Najd\u011Bte Lishkee na va\u0161\u00ED obl\u00EDben\u00E9 streamovac\u00ED platform\u011B.",
+  "music.showsCta": "Nadch\u00E1zej\u00EDc\u00ED koncerty",
 
   // --- Shows page ---
   "meta.shows.title": "Koncerty \u2014 Lishkee",
@@ -122,6 +126,7 @@ Nuance 2016, Skalica`,
   "about.bookingPress": "Booking/press:",
   "about.moreLinks": "Dal\u0161\u00ED odkazy:",
   "about.followUs": "Sledujte n\u00E1s",
+  "about.listenCta": "Poslouchejte na\u0161i hudbu",
   "about.theirSocials": "soci\u00E1ln\u00EDch s\u00EDt\u00EDch",
 
   // --- About page: band bio ---
@@ -141,4 +146,10 @@ Jejich hudbu najdete na všech streamovacích platformách. Pro aktualní koncer
   "footer.connect": "Spojen\u00ED",
   "footer.allRightsReserved": "V\u0161echna pr\u00E1va vyhrazena.",
   "footer.photosBy": "Foto",
+
+  // --- 404 page ---
+  "meta.404.title": "Str\u00E1nka nenalezena \u2014 Lishkee",
+  "404.heading": "Ztraceni ve vrstvách",
+  "404.message": "Str\u00E1nka, kterou hled\u00E1te, neexistuje nebo byla přesunuta.",
+  "404.backHome": "Zpět domů",
 }
