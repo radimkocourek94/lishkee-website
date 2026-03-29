@@ -113,6 +113,25 @@
     color: var(--color-accent-hover);
   }
 
+  /* Reusable plain link style used in bio text and shows list */
+  .link-plain {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 0.25rem;
+    transition: color 0.2s ease;
+  }
+
+  .link-plain:hover {
+    color: var(--color-accent-hover);
+  }
+
+  /* Ensure inline SVGs inside the link inherit color and animate with text */
+  .link-plain svg {
+    stroke: currentColor;
+    fill: currentColor;
+    transition: color 0.2s ease;
+  }
+
   ::selection {
     background-color: var(--color-selection);
     color: var(--color-text);

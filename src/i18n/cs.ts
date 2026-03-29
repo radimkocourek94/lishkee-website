@@ -61,7 +61,10 @@ export const cs: Translations = {
   "shows.heading": "Koncerty",
   "shows.subtitle": "Přehled vybraných odehraných a nadcházejících vystoupení.",
   "shows.upcomingHeading": "Nadcházející koncerty",
-  "shows.upcomingList": "",
+  "shows.upcomingList": `Sweetsenfest, Frýdek Místek, 13.6.2026
+https://www.sweetsenfest.cz/
+Festival Maringota, Skalica, Slovensko, 7-8.8.2026
+https://festmaringota.sk/`,
   "shows.emptyMain": "Lišky odpočívají\u2026",
   "shows.emptyCta": "Pro novinky nás sledujte na sociálních sítích!",
   "shows.pastHeading": "Odehrané a významné koncerty",

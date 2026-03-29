@@ -61,7 +61,8 @@ export const en: Translations = {
   "shows.heading": "Shows",
   "shows.subtitle": "A selection of past and upcoming shows.",
   "shows.upcomingHeading": "Upcoming shows",
-  "shows.upcomingList": "",
+  "shows.upcomingList": `Sweetsenfest, Frýdek-Místek, 13.6.2026 https://www.sweetsenfest.cz/
+Festival Maringota, Skalica, Slovakia, 7-8.8.2026 https://festmaringota.sk/`,
   "shows.emptyMain": "Lishkee are resting\u2026",
   "shows.emptyCta": "Follow us on socials for updates!",
   "shows.pastHeading": "Past & notable shows",

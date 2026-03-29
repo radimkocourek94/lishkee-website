@@ -39,8 +39,25 @@ const basePath = (import.meta.env.BASE_URL ?? "/").replace(/\/$/, "")
       <ul class="space-y-3">
         {upcomingShows.map((show) => (
           <li class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3 py-3 border-b border-white/5 last:border-b-0">
-            <span class="text-xs font-semibold uppercase tracking-wider text-accent shrink-0">{show.date}</span>
-            <span class="text-text/85 text-sm sm:text-base">{show.event}</span>
+            <span class="text-xs font-semibold uppercase tracking-wider text-accent/60 shrink-0 sm:w-40">{show.date}</span>
+            {show.url ? (
+              <a
+                class="text-accent hover:text-accent-hover underline underline-offset-2 transition-colors text-sm sm:text-base flex items-center gap-2"
+                href={show.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Open ${show.event} website (opens in new tab)`}
+              >
+                <span>{show.event}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <polyline points="15 3 21 3 21 9" />
+                  <line x1="10" y1="14" x2="21" y2="3" />
+                </svg>
+              </a>
+            ) : (
+              <span class="text-text/85 text-sm sm:text-base">{show.event}</span>
+            )}
           </li>
         ))}
       </ul>
