@@ -129,7 +129,7 @@ Nuance, Skalica, září 2016`,
   "about.bookingPress": "Booking/press:",
   "about.moreLinks": "Dal\u0161\u00ED odkazy:",
   "about.followUs": "Sledujte n\u00E1s",
-  "about.listenCta": "Poslouchejte na\u0161i hudbu",
+  "about.listenCta": "Poslechněte si na\u0161i hudbu",
   "about.theirSocials": "soci\u00E1ln\u00EDch s\u00EDt\u00EDch",
 
   // --- About page: band bio ---
