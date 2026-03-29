@@ -25,3 +25,15 @@ export const band = {
     tiktok: "https://www.tiktok.com/@lishkee.music",
   },
 }
+
+/** Streaming platform URLs for the "Listen anywhere" section on the music page */
+export const streamingLinks: Record<string, string> = {
+  spotify: band.socials.spotify,
+  appleMusic: "https://geo.music.apple.com/us/artist/lishkee/1591479879?app=music&ls=1",
+  youtubeMusic: "https://music.youtube.com/channel/UCzQJfbiLCFGrN1BBK2uKT8A",
+  amazonMusic: "https://music.amazon.com/artists/B09K2MK1P2",
+  tidal: "https://tidal.com/artist/28950563",
+  bandcamp: band.socials.bandcamp,
+  soundcloud: band.socials.soundcloud,
+  youtube: band.socials.youtube,
+}

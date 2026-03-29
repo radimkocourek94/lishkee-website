@@ -1,13 +1,13 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro"
-import { band } from "../../data/band"
+import { band, streamingLinks } from "../../data/band"
 import { socialLabels, socialIcons } from "../../data/socials"
 import { useTranslations, localePath } from "../../i18n"
 
 const locale = "cs" as const
 const t = useTranslations(locale)
 
-const streamingPlatforms = ["spotify", "bandcamp", "soundcloud", "youtube"] as const
+const streamingPlatforms = ["spotify", "appleMusic", "youtubeMusic", "amazonMusic", "tidal", "bandcamp", "soundcloud", "youtube"] as const
 ---
 
 <BaseLayout
@@ -73,7 +73,7 @@ const streamingPlatforms = ["spotify", "bandcamp", "soundcloud", "youtube"] as c
 
     <div class="flex flex-wrap gap-3 justify-center">
       {streamingPlatforms.map((key) => {
-        const url = band.socials[key]
+        const url = streamingLinks[key]
         return url ? (
           <a
             href={url}
