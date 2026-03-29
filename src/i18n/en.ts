@@ -146,6 +146,7 @@ Follow them on their socials for updates and other fun content!`,
   "footer.connect": "Connect",
   "footer.allRightsReserved": "All rights reserved.",
   "footer.photosBy": "Photos by",
+  "footer.location": "Brno, Czechia",
 
   // --- 404 page ---
   "meta.404.title": "Page Not Found \u2014 Lishkee",

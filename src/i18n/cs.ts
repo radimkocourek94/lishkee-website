@@ -149,6 +149,7 @@ Jejich hudbu najdete na všech streamovacích platformách. Pro aktualní koncer
   "footer.connect": "Odkazy",
   "footer.allRightsReserved": "V\u0161echna pr\u00E1va vyhrazena.",
   "footer.photosBy": "Foto",
+  "footer.location": "Brno, Česká republika",
 
   // --- 404 page ---
   "meta.404.title": "Str\u00E1nka nenalezena \u2014 Lishkee",
