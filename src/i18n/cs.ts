@@ -67,7 +67,7 @@ Festival Maringota, Skalica, Slovensko, 7-8.8.2026
 https://festmaringota.sk/`,
   "shows.emptyMain": "Lišky odpočívají\u2026",
   "shows.emptyCta": "Pro novinky nás sledujte na sociálních sítích!",
-  "shows.pastHeading": "Odehrané a významné koncerty",
+  "shows.pastHeading": "Odehrané koncerty",
   "shows.list": `Koncert s Mlhovina a Mad Velvet, Kafara, Brno, únor 2026
 Nebál, Nová Zbrojovka, Brno, září 2025
 Living room s Abundance, ArtBar, Brno, srpen 2025
