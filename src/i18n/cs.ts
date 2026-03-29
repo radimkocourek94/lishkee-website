@@ -146,7 +146,7 @@ Jejich hudbu najdete na všech streamovacích platformách. Pro aktualní koncer
 
   // --- Footer ---
   "footer.navigate": "Navigace",
-  "footer.connect": "Spojen\u00ED",
+  "footer.connect": "Odkazy",
   "footer.allRightsReserved": "V\u0161echna pr\u00E1va vyhrazena.",
   "footer.photosBy": "Foto",
 
