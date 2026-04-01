@@ -31,7 +31,7 @@ export function renderBio(bio: string, socialsLabel: string): string {
   )
   html = html.replace(
     /<em>Collections of Pink, Blue, and All the Other Colors, Too<\/em>/g,
-    `<a href="https://lishkee.bandcamp.com/album/collections-of-pink-blue-all-the-other-colors-too" target="_blank" rel="noopener noreferrer" aria-label="Collections of Pink, Blue, and All the Other Colors, Too" class="${linkClass}">\u{1D4D2}\u{1D4F8}\u{1D4F5}\u{1D4F5}\u{1D4EE}\u{1D4EC}\u{1D4FD}\u{1D4F2}\u{1D4F8}\u{1D4F7}\u{1D4FC} \u{1D4F8}\u{1D4EB} \u{1D4DF}\u{1D4F2}\u{1D4F7}\u{1D4F4}, \u{1D4D1}\u{1D4F5}\u{1D4FE}\u{1D4EE}, \u{1D4EA}\u{1D4F7}\u{1D4ED} \u{1D4D0}\u{1D4F5}\u{1D4F5} \u{1D4FD}\u{1D4F1}\u{1D4EE} \u{1D4DE}\u{1D4FD}\u{1D4F1}\u{1D4EE}\u{1D4FB} \u{1D4D2}\u{1D4F8}\u{1D4F5}\u{1D4F8}\u{1D4FB}\u{1D4FC}, \u{1D4E3}\u{1D4F8}\u{1D4F8}</a>`,
+    `<a href="https://lishkee.bandcamp.com/album/collections-of-pink-blue-all-the-other-colors-too" target="_blank" rel="noopener noreferrer" aria-label="Collections of Pink, Blue, and All the Other Colors, Too" class="${linkClass}">\u{1D4D2}\u{1D4F8}\u{1D4F5}\u{1D4F5}\u{1D4EE}\u{1D4EC}\u{1D4FD}\u{1D4F2}\u{1D4F8}\u{1D4F7}\u{1D4FC} \u{1D4F8}\u{1D4EF} \u{1D4DF}\u{1D4F2}\u{1D4F7}\u{1D4F4}, \u{1D4D1}\u{1D4F5}\u{1D4FE}\u{1D4EE}, \u{1D4EA}\u{1D4F7}\u{1D4ED} \u{1D4D0}\u{1D4F5}\u{1D4F5} \u{1D4FD}\u{1D4F1}\u{1D4EE} \u{1D4DE}\u{1D4FD}\u{1D4F1}\u{1D4EE}\u{1D4FB} \u{1D4D2}\u{1D4F8}\u{1D4F5}\u{1D4F8}\u{1D4FB}\u{1D4FC}, \u{1D4E3}\u{1D4F8}\u{1D4F8}</a>`,
   )
 
   const linkUrl = "https://linktr.ee/lishkee"
