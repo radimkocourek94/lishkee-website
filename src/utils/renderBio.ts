@@ -19,7 +19,7 @@ export function renderBio(bio: string, socialsLabel: string): string {
 
   html = html.replace(
     /<em>Layers<\/em>/g,
-    `<a href="https://lishkee.bandcamp.com/album/layers-2?t=2" target="_blank" rel="noopener noreferrer" aria-label="Layers" class="${linkClass}">\u{1D4DB}\u{1D4EA}\u{1D4F4}\u{1D4EE}\u{1D4FB}\u{1D4FC}</a>`,
+    `<a href="https://lishkee.bandcamp.com/album/layers-2?t=2" target="_blank" rel="noopener noreferrer" aria-label="Layers" class="${linkClass}">\u{1D4DB}\u{1D4EA}\u{1D502}\u{1D4EE}\u{1D4FB}\u{1D4FC}</a>`,
   )
   html = html.replace(
     /<em>Distortions<\/em>/g,
