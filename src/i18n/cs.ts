@@ -61,7 +61,8 @@ export const cs: Translations = {
   "shows.heading": "Koncerty",
   "shows.subtitle": "Přehled vybraných odehraných a nadcházejících vystoupení.",
   "shows.upcomingHeading": "Nadcházející koncerty",
-  "shows.upcomingList": `Sweetsen fest, Frýdek-Místek, 13.6.2026
+  "shows.upcomingList": `Jarní Bzučení, úl, Praha, 21.5.2026 19:00 https://bandsintown.com/e/108246218?came_from=297&utm_medium=web&utm_source=copy_link&utm_campaign=event_social_share
+Sweetsen fest, Frýdek-Místek, 13.6.2026
 https://www.sweetsenfest.cz/
 Festival Maringota, Skalica, Slovensko, 7-8.8.2026
 https://festmaringota.sk/`,

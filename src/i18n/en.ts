@@ -61,7 +61,8 @@ export const en: Translations = {
   "shows.heading": "Shows",
   "shows.subtitle": "A selection of past and upcoming shows.",
   "shows.upcomingHeading": "Upcoming shows",
-  "shows.upcomingList": `Sweetsen fest, Frýdek-Místek, 13.6.2026 https://www.sweetsenfest.cz/
+  "shows.upcomingList": `Jarní Bzučení, úl, Prague, 21.5.2026 https://bandsintown.com/e/108246218?came_from=297&utm_medium=web&utm_source=copy_link&utm_campaign=event_social_share
+Sweetsen fest, Frýdek-Místek, 13.6.2026 https://www.sweetsenfest.cz/
 Festival Maringota, Skalica, Slovakia, 7-8.8.2026 https://festmaringota.sk/`,
   "shows.emptyMain": "Lishkee are resting\u2026",
   "shows.emptyCta": "Follow us on socials for updates!",
