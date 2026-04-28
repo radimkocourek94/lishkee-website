@@ -135,7 +135,7 @@ Nuance, Skalica, září 2016`,
   // --- About page: band bio ---
   "about.bio": `Lishkee je indie alt-pop projekt z Brna, který tvoří Viktória Šmídová a Radim Kocourek. Jejich hudba se pohybuje na pomezí dream popu, downtempa a elektroniky. Vyznačuje se snivou, intimní atmosférou. Produkují ji sami, ve svém malém domácím studiu.
 
-Pod původním názvem Stereofox vydali v roce 2017 demo album *Layers*, které bylo nominováno na Objev roku na slovenskou cenu Radio_Head Awards. O rok později se jejich singl *Distortions* dostal do finále soutěže Radio Wave Startér a přinesl jim vystoupení na festivalu Pohoda. V roce 2022 projekt přejmenovali na Lishkee, kdy se vydali novou cestou.
+Pod původním názvem Stereofox vydali v roce 2017 demo album *Layers*, které bylo nominováno na Debut roku na slovenskou cenu Radio_Head Awards. O rok později se jejich singl *Distortions* dostal do finále soutěže Radio Wave Startér a přinesl jim vystoupení na festivalu Pohoda. V roce 2022 projekt přejmenovali na Lishkee, kdy se vydali novou cestou.
 
 V roce 2024 se podíleli na site-specific performance s názvem *Labyrint*, pro kterou připravili na míru šitý soundtrack.
 
