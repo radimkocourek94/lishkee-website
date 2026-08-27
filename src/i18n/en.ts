@@ -61,14 +61,15 @@ export const en: Translations = {
   "shows.heading": "Shows",
   "shows.subtitle": "A selection of past and upcoming shows.",
   "shows.upcomingHeading": "Upcoming shows",
-  "shows.upcomingList": `Lishkee + Černý tesák, Kulturní centrum Provoz, Ostrava, 9.5.2026 8:30pm https://bandsintown.com/e/108308007
-Jarní Bzučení: Černý tesák, Lishkee, Dan Handák, úl, Prague, 21.5.2026 7:00pm https://bandsintown.com/e/108246218?came_from=297&utm_medium=web&utm_source=copy_link&utm_campaign=event_social_share
-Sweetsen fest, Frýdek-Místek, 13.6.2026 https://www.sweetsenfest.cz/
-Festival Maringota, Skalica, Slovakia, 7-8.8.2026 https://festmaringota.sk/`,
+  "shows.upcomingList": "",
   "shows.emptyMain": "Lishkee are resting\u2026",
   "shows.emptyCta": "Follow us on socials for updates!",
   "shows.pastHeading": "Past & notable shows",
   "shows.list": `Show with Mlhovina and Mad Velvet, Kafara, Brno, February 2026
+Lishkee + Černý tesák, Kulturní centrum Provoz, Ostrava, 9.5.2026
+Jarní Bzučení: Černý tesák, Lishkee, Dan Handák, úl, Prague, 21.5.2026
+Sweetsen fest, Frýdek-Místek, 13.6.2026
+Festival Maringota, Skalica, Slovakia, 7-8.8.2026
 Nebál, Nová Zbrojovka, Brno, September 2025
 Living room with Abundance, ArtBar, Brno, August 2025
 Sweetsen fest, Frýdek-Místek, June 2025
