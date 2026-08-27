@@ -61,7 +61,10 @@ export const cs: Translations = {
   "shows.heading": "Koncerty",
   "shows.subtitle": "Přehled vybraných odehraných a nadcházejících vystoupení.",
   "shows.upcomingHeading": "Nadcházející koncerty",
-  "shows.upcomingList": "",
+  "shows.upcomingList": `+ Shake_Spirit, Klub a galerie U Černého kocoura, Frýdek-Místek, 26.9.2026
++ Černý tesák a Taliraw, Konvikt, Olomouc, 9.10.2026
++ Černý tesák a Taliraw, ArtBar, Brno, 17.10.2026
++ Černý tesák, Anděl Music Bar, Plzeň, 24.10.2026`,
   "shows.emptyMain": "Lišky odpočívají\u2026",
   "shows.emptyCta": "Pro novinky nás sledujte na sociálních sítích!",
   "shows.pastHeading": "Odehrané koncerty",

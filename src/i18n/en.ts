@@ -61,7 +61,10 @@ export const en: Translations = {
   "shows.heading": "Shows",
   "shows.subtitle": "A selection of past and upcoming shows.",
   "shows.upcomingHeading": "Upcoming shows",
-  "shows.upcomingList": "",
+  "shows.upcomingList": `+ Shake_Spirit, Klub a galerie U Černého kocoura, Frýdek-Místek, 26.9.2026
++ Černý tesák and Taliraw, Konvikt, Olomouc, 9.10.2026
++ Černý tesák and Taliraw, ArtBar, Brno, 17.10.2026
++ Černý tesák, Anděl Music Bar, Plzeň, 24.10.2026`,
   "shows.emptyMain": "Lishkee are resting\u2026",
   "shows.emptyCta": "Follow us on socials for updates!",
   "shows.pastHeading": "Past & notable shows",
